@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "36505933346",
+    "project_id": "tfg-auth-35200",
+    "storage_bucket": "tfg-auth-35200.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:36505933346:android:50f52d025b3f3046789c7b",
+        "android_client_info": {
+          "package_name": "com.example.tfg"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "36505933346-7f0fic238ik47ut0mgibr5rv494sdk6i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAwrkxhIVBtEnbXecomwKv8S5PV0QP_Iho"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "36505933346-7f0fic238ik47ut0mgibr5rv494sdk6i.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

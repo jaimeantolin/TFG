@@ -2,6 +2,7 @@ package com.smallacademy.userroles;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -24,6 +25,14 @@ public class Login extends AppCompatActivity {
 
         checkField(email);
         checkField(password);
+
+
+        gotoRegister.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(),Register.class));
+            }
+        });
 
 
 

@@ -7,6 +7,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -24,6 +26,7 @@ import java.util.Map;
 public class Register extends AppCompatActivity {
     EditText fullName,email,password;
     Button registerBtn,goToLogin;
+    CheckBox isCreador, isPaciente;
     boolean valid = true;
     FirebaseAuth fAuth;
     FirebaseFirestore fStore;
@@ -42,6 +45,28 @@ public class Register extends AppCompatActivity {
         password = findViewById(R.id.registerPassword);
         registerBtn = findViewById(R.id.registerBtn);
         goToLogin = findViewById(R.id.gotoLogin);
+        isCreador = findViewById(R.id.isCreador);
+        isPaciente = findViewById(R.id.isPaciente);
+
+        // checkbox logic
+
+        isCreador.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(buttonView.isChecked()){
+                    isPaciente.setChecked(false);
+                }
+            }
+        });
+
+        isPaciente.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(buttonView.isChecked()){
+                    isCreador.setChecked(false);
+                }
+            }
+        });
 
         registerBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -51,8 +76,15 @@ public class Register extends AppCompatActivity {
                 checkField(email);
                 checkField(password);
 
+                // checkbox validation
+                if(!(isCreador.isChecked() || isPaciente.isChecked())){
+                    Toast.makeText(Register.this,"Select the Account type", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+
+
                 if (valid) {
-                    // start the user registration process, me quedo en 6:00 segunda parte
                     fAuth.createUserWithEmailAndPassword(email.getText().toString(), password.getText().toString()).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                         @Override
                         public void onSuccess(AuthResult authResult) {
@@ -63,12 +95,23 @@ public class Register extends AppCompatActivity {
                             userInfo.put("FullName", fullName.getText().toString());
                             userInfo.put("UserEmail", email.getText().toString());
                             // specify if the user is admin
-                            userInfo.put("isUser", "1");
+                            if(isCreador.isChecked()){
+                                userInfo.put("isCreador", "1");
+                            }
+                            if(isPaciente.isChecked()){
+                                userInfo.put("isPaciente", "1");
+                            }
 
                             df.set(userInfo);
 
-                            startActivity(new Intent(getApplicationContext(), MainActivity.class));
-                            finish(); // prevents going back to registration pge
+                            if(isCreador.isChecked()){
+                                startActivity(new Intent(getApplicationContext(), CreadorActivity.class));
+                                finish(); // prevents going back to registration page
+                            }
+                            if(isPaciente.isChecked()){
+                                startActivity(new Intent(getApplicationContext(), PacienteActivity.class));
+                                finish(); // prevents going back to registration page
+                            }
                         }
                     }).addOnFailureListener(new OnFailureListener() {
                         @Override

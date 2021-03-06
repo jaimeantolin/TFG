@@ -97,9 +97,15 @@ public class Login extends AppCompatActivity {
                     finish();
                 }
 
-                if(documentSnapshot.getString("isUser") != null){
+                if(documentSnapshot.getString("isPaciente") != null){
                     //user is not admin
-                    startActivity(new Intent(getApplicationContext(),MainActivity.class));
+                    startActivity(new Intent(getApplicationContext(), PacienteActivity.class));
+                    finish();
+                }
+
+                if(documentSnapshot.getString("isCreador") != null){
+                    //user is not admin
+                    startActivity(new Intent(getApplicationContext(), CreadorActivity.class));
                     finish();
                 }
             }
@@ -121,8 +127,32 @@ public class Login extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         if(FirebaseAuth.getInstance().getCurrentUser() != null){
-            startActivity(new Intent(getApplicationContext(),MainActivity.class));
-            finish();
+            DocumentReference df = FirebaseFirestore.getInstance().collection("Users").document(FirebaseAuth.getInstance().getCurrentUser().getUid());
+            df.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                @Override
+                public void onSuccess(DocumentSnapshot documentSnapshot) {
+                    if(documentSnapshot.getString("isAdmin") != null){
+                        startActivity(new Intent(getApplicationContext(), AdminActivity.class));
+                        finish();
+                    }
+                    if(documentSnapshot.getString("isCreador") != null){
+                        startActivity(new Intent(getApplicationContext(), CreadorActivity.class));
+                        finish();
+                    }
+                    if(documentSnapshot.getString("isPaciente") != null){
+                        startActivity(new Intent(getApplicationContext(), PacienteActivity.class));
+                        finish();
+                    }
+
+                }
+            }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+                    FirebaseAuth.getInstance().signOut();
+                    startActivity(new Intent(getApplicationContext(),Login.class));
+                    finish();
+                }
+            });
         }
     }
 }

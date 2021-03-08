@@ -1,4 +1,4 @@
-package com.smallacademy.userroles;
+package com.Activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -19,7 +19,8 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
-public class Login extends AppCompatActivity {
+
+public class LoginActivity extends AppCompatActivity {
     EditText email,password;
     Button loginBtn,gotoRegister;
     boolean valid = true;
@@ -50,14 +51,14 @@ public class Login extends AppCompatActivity {
                     fAuth.signInWithEmailAndPassword(email.getText().toString(), password.getText().toString()).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                         @Override
                         public void onSuccess(AuthResult authResult) {
-                            Toast.makeText(Login.this, "Logged in Succesfully", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(LoginActivity.this, "Logged in Succesfully", Toast.LENGTH_SHORT).show();
                             checkUserAccessLevel(authResult.getUser().getUid());
 
                         }
                     }).addOnFailureListener(new OnFailureListener() {
                         @Override
                         public void onFailure(@NonNull Exception e) {
-                            Toast.makeText(Login.this, e.getMessage(), Toast.LENGTH_SHORT ).show(); // displays error message
+                            Toast.makeText(LoginActivity.this, e.getMessage(), Toast.LENGTH_SHORT ).show(); // displays error message
                         }
                     });
 
@@ -70,7 +71,7 @@ public class Login extends AppCompatActivity {
         gotoRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(),Register.class));
+                startActivity(new Intent(getApplicationContext(),RegisterActivity.class));
             }
         });
 
@@ -93,7 +94,7 @@ public class Login extends AppCompatActivity {
 
                 if(documentSnapshot.getString("isAdmin") != null){
                     //user is admin
-                    startActivity(new Intent(getApplicationContext(),AdminActivity.class));
+                    startActivity(new Intent(getApplicationContext(), AdminActivity.class));
                     finish();
                 }
 
@@ -149,7 +150,7 @@ public class Login extends AppCompatActivity {
                 @Override
                 public void onFailure(@NonNull Exception e) {
                     FirebaseAuth.getInstance().signOut();
-                    startActivity(new Intent(getApplicationContext(),Login.class));
+                    startActivity(new Intent(getApplicationContext(), LoginActivity.class));
                     finish();
                 }
             });

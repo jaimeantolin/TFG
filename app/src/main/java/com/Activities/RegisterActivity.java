@@ -1,4 +1,4 @@
-package com.smallacademy.userroles;
+package com.Activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,6 +12,7 @@ import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.Toast;
 
+
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.AuthResult;
@@ -23,7 +24,8 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Register extends AppCompatActivity {
+
+public class RegisterActivity extends AppCompatActivity {
     EditText fullName,email,password;
     Button registerBtn,goToLogin;
     CheckBox isCreador, isPaciente;
@@ -78,7 +80,7 @@ public class Register extends AppCompatActivity {
 
                 // checkbox validation
                 if(!(isCreador.isChecked() || isPaciente.isChecked())){
-                    Toast.makeText(Register.this,"Select the Account type", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(RegisterActivity.this,"Select the Account type", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
@@ -89,7 +91,7 @@ public class Register extends AppCompatActivity {
                         @Override
                         public void onSuccess(AuthResult authResult) {
                             FirebaseUser user = fAuth.getCurrentUser();
-                            Toast.makeText(Register.this, "Account Created", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(RegisterActivity.this, "Account Created", Toast.LENGTH_SHORT).show();
                             DocumentReference df = fStore.collection("Users").document(user.getUid());
                             Map<String, Object> userInfo = new HashMap<>();
                             userInfo.put("FullName", fullName.getText().toString());
@@ -116,7 +118,7 @@ public class Register extends AppCompatActivity {
                     }).addOnFailureListener(new OnFailureListener() {
                         @Override
                         public void onFailure(@NonNull Exception e) {
-                            Toast.makeText(Register.this, "Failed to Create Account", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(RegisterActivity.this, "Failed to Create Account", Toast.LENGTH_SHORT).show();
                         }
                     });
 
@@ -127,7 +129,7 @@ public class Register extends AppCompatActivity {
         goToLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(),Login.class));
+                startActivity(new Intent(getApplicationContext(),LoginActivity.class));
             }
         });
     }

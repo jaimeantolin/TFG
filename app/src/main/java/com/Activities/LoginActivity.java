@@ -51,8 +51,24 @@ public class LoginActivity extends AppCompatActivity {
                     fAuth.signInWithEmailAndPassword(email.getText().toString(), password.getText().toString()).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                         @Override
                         public void onSuccess(AuthResult authResult) {
-                            Toast.makeText(LoginActivity.this, "Logged in Succesfully", Toast.LENGTH_SHORT).show();
-                            checkUserAccessLevel(authResult.getUser().getUid());
+                            String uid = authResult.getUser().getUid();
+                            DocumentReference df = fStore.collection("Users").document(uid);
+                            df.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+
+                                @Override
+                                public void onSuccess(DocumentSnapshot documentSnapshot) {
+                                    if(documentSnapshot.getString("isValidated").equals("1")){
+                                        Toast.makeText(LoginActivity.this, "Logged in Succesfully", Toast.LENGTH_SHORT).show();
+                                        checkUserAccessLevel(documentSnapshot.getId());
+                                    }
+                                    else{
+                                        Toast.makeText(LoginActivity.this, "User not validated", Toast.LENGTH_SHORT).show();
+                                        FirebaseAuth.getInstance().signOut();
+                                    }
+                                }
+                            });
+
+
 
                         }
                     }).addOnFailureListener(new OnFailureListener() {
@@ -92,19 +108,19 @@ public class LoginActivity extends AppCompatActivity {
 
                 //identify the user access level
 
-                if(documentSnapshot.getString("isAdmin") != null){
+                if(documentSnapshot.getString("isAdmin").equals("1")){
                     //user is admin
                     startActivity(new Intent(getApplicationContext(), AdminActivity.class));
                     finish();
                 }
 
-                if(documentSnapshot.getString("isPaciente") != null){
+                if(documentSnapshot.getString("isPaciente").equals("1")){
                     //user is not admin
                     startActivity(new Intent(getApplicationContext(), PacienteActivity.class));
                     finish();
                 }
 
-                if(documentSnapshot.getString("isCreador") != null){
+                if(documentSnapshot.getString("isCreador").equals("1")){
                     //user is not admin
                     startActivity(new Intent(getApplicationContext(), CreadorActivity.class));
                     finish();
@@ -125,22 +141,22 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onStart() {
+    protected void onStart() { //if already logged in
         super.onStart();
         if(FirebaseAuth.getInstance().getCurrentUser() != null){
             DocumentReference df = FirebaseFirestore.getInstance().collection("Users").document(FirebaseAuth.getInstance().getCurrentUser().getUid());
             df.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
                 @Override
                 public void onSuccess(DocumentSnapshot documentSnapshot) {
-                    if(documentSnapshot.getString("isAdmin") != null){
+                    if(documentSnapshot.getString("isAdmin").equals("1")){
                         startActivity(new Intent(getApplicationContext(), AdminActivity.class));
                         finish();
                     }
-                    if(documentSnapshot.getString("isCreador") != null){
+                    if(documentSnapshot.getString("isCreador").equals("1")){
                         startActivity(new Intent(getApplicationContext(), CreadorActivity.class));
                         finish();
                     }
-                    if(documentSnapshot.getString("isPaciente") != null){
+                    if(documentSnapshot.getString("isPaciente").equals("1")){
                         startActivity(new Intent(getApplicationContext(), PacienteActivity.class));
                         finish();
                     }

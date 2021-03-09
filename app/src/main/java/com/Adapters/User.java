@@ -6,32 +6,35 @@ import java.io.Serializable;
 
 public class User implements Serializable {
     @Exclude private String id;
-    private String FullName, UserEmail, isValidated;
+    private String fullName, userEmail, isValidated, isAdmin, isPaciente, isCreador;
 
     public User(){
 
     }
 
-    public User(String fullName, String email, String isValidated) {
-        this.FullName = fullName;
-        this.UserEmail = email;
+    public User(String fullName, String email, String isValidated, String isAdmin, String isPaciente, String isCreador) {
+        this.fullName = fullName;
+        this.userEmail = email;
         this.isValidated = isValidated;
+        this.isAdmin = isAdmin;
+        this.isPaciente = isPaciente;
+        this.isCreador = isCreador;
     }
 
-    public String getFullName() {
-        return FullName;
+    public String getfullName() {
+        return fullName;
     }
 
-    public void setFullName(String fullName) {
-        this.FullName = fullName;
+    public void setfullName(String fullName) {
+        this.fullName = fullName;
     }
 
-    public String getUserEmail() {
-        return UserEmail;
+    public String getuserEmail() {
+        return userEmail;
     }
 
-    public void setEmail(String email) {
-        this.UserEmail = email;
+    public void setuserEmail(String email) {
+        this.userEmail = email;
     }
 
     public String getIsValidated() {
@@ -48,5 +51,29 @@ public class User implements Serializable {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public String getIsAdmin() {
+        return isAdmin;
+    }
+
+    public void setIsAdmin(String isAdmin) {
+        this.isAdmin = isAdmin;
+    }
+
+    public String getIsPaciente() {
+        return isPaciente;
+    }
+
+    public void setIsPaciente(String isPaciente) {
+        this.isPaciente = isPaciente;
+    }
+
+    public String getIsCreador() {
+        return isCreador;
+    }
+
+    public void setIsCreador(String isCreador) {
+        this.isCreador = isCreador;
     }
 }

@@ -16,8 +16,10 @@
         android:padding="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
 
         <TextView
             android:layout_width="match_parent"
@@ -46,7 +48,6 @@
             android:hint="Email"
             android:padding="10dp" />
 
-
         <EditText
             android:id="@+id/edittext_isValidated"
             android:layout_width="match_parent"
@@ -54,6 +55,34 @@
             android:layout_marginTop="5dp"
             android:layout_marginBottom="5dp"
             android:hint="Validation Field"
+            android:padding="10dp" />
+
+
+        <EditText
+            android:id="@+id/edittext_isAdmin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:hint="Admin permissions"
+            android:padding="10dp" />
+
+        <EditText
+            android:id="@+id/edittext_isPaciente"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:hint="Paciente"
+            android:padding="10dp" />
+
+        <EditText
+            android:id="@+id/edittext_isCreador"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:hint="Creador"
             android:padding="10dp" />
 
 

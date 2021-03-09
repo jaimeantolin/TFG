@@ -1,6 +1,7 @@
 package com.Activities;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -17,6 +18,9 @@ public class UpdateUserActivity extends AppCompatActivity implements View.OnClic
     private EditText editTextFullName;
     private EditText editTextUserEmail;
     private EditText editTextIsValidated;
+    private EditText editTextIsAdmin;
+    private EditText editTextIsPaciente;
+    private EditText editTextIsCreador;
 
     private FirebaseFirestore db;
 
@@ -34,18 +38,22 @@ public class UpdateUserActivity extends AppCompatActivity implements View.OnClic
         editTextFullName = findViewById(R.id.edittext_fullName);
         editTextUserEmail = findViewById(R.id.edittext_email);
         editTextIsValidated = findViewById(R.id.edittext_isValidated);
+        editTextIsAdmin = findViewById(R.id.edittext_isAdmin);
+        editTextIsPaciente = findViewById(R.id.edittext_isPaciente);
+        editTextIsCreador = findViewById(R.id.edittext_isCreador);
 
 
-        editTextFullName.setText(user.getFullName());
-        editTextUserEmail.setText(user.getUserEmail());
+        editTextFullName.setText(user.getfullName());
+        editTextUserEmail.setText(user.getuserEmail());
         editTextIsValidated.setText(user.getIsValidated());
-
-
+        editTextIsAdmin.setText(user.getIsAdmin());
+        editTextIsPaciente.setText(user.getIsPaciente());
+        editTextIsCreador.setText(user.getIsCreador());
 
         findViewById(R.id.button_update).setOnClickListener(this);
     }
 
-    private boolean hasValidationErrors(String fullName, String userEmail, String isValidated) {
+    private boolean hasValidationErrors(String fullName, String userEmail, String isValidated, String isAdmin, String isPaciente, String isCreador) {
         if (fullName.isEmpty()) {
             editTextFullName.setError("Name required");
             editTextFullName.requestFocus();
@@ -63,21 +71,39 @@ public class UpdateUserActivity extends AppCompatActivity implements View.OnClic
             editTextIsValidated.requestFocus();
             return true;
         }
-
+    /*    if (isAdmin.isEmpty()) {
+            editTextIsAdmin.setError("isAdmin field required");
+            editTextIsAdmin.requestFocus();
+            return true;
+        }
+        if (isPaciente.isEmpty()) {
+            editTextIsPaciente.setError("isPaciente field required");
+            editTextIsPaciente.requestFocus();
+            return true;
+        }
+        if (isCreador.isEmpty()) {
+            editTextIsCreador.setError("isCreador field required");
+            editTextIsCreador.requestFocus();
+            return true;
+        }
+*/
 
         return false;
     }
 
 
-    private void updateProduct() {
-        String fullName = editTextFullName.getText().toString().trim();
-        String userEmail = editTextUserEmail.getText().toString().trim();
+    private void updateUser() {
+        String FullName = editTextFullName.getText().toString().trim();
+        String UserEmail = editTextUserEmail.getText().toString().trim();
         String isValidated = editTextIsValidated.getText().toString().trim();
+        String isAdmin = editTextIsAdmin.getText().toString().trim();
+        String isPaciente = editTextIsPaciente.getText().toString().trim();
+        String isCreador = editTextIsCreador.getText().toString().trim();
 
 
-        if (!hasValidationErrors(fullName, userEmail, isValidated)) {
+        if (!hasValidationErrors(FullName, UserEmail, isValidated, isAdmin, isPaciente, isCreador)) {
 
-            User u = new User(fullName, userEmail, isValidated);
+            User u = new User(FullName, UserEmail, isValidated, isAdmin, isPaciente, isCreador);
 
 
             db.collection("Users").document(user.getId())
@@ -85,7 +111,7 @@ public class UpdateUserActivity extends AppCompatActivity implements View.OnClic
                     .addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void aVoid) {
-                            Toast.makeText(UpdateUserActivity.this, "Product Updated", Toast.LENGTH_LONG).show();
+                            Toast.makeText(UpdateUserActivity.this, "User Updated", Toast.LENGTH_LONG).show();
                         }
                     });
         }
@@ -95,7 +121,8 @@ public class UpdateUserActivity extends AppCompatActivity implements View.OnClic
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.button_update:
-                updateProduct();
+                updateUser();
+                startActivity(new Intent(getApplicationContext(), AdminActivity.class));
                 break;
         }
     }

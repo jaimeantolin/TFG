@@ -94,9 +94,10 @@ public class RegisterActivity extends AppCompatActivity {
                             Toast.makeText(RegisterActivity.this, "Account Created", Toast.LENGTH_SHORT).show();
                             DocumentReference df = fStore.collection("Users").document(user.getUid());
                             Map<String, Object> userInfo = new HashMap<>();
-                            userInfo.put("FullName", fullName.getText().toString());
-                            userInfo.put("UserEmail", email.getText().toString());
-                            // specify if the user is admin
+                            userInfo.put("fullName", fullName.getText().toString());
+                            userInfo.put("userEmail", email.getText().toString());
+                            userInfo.put("isValidated", "0");
+
                             if(isCreador.isChecked()){
                                 userInfo.put("isCreador", "1");
                             }

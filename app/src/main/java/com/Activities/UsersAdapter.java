@@ -2,7 +2,6 @@ package com.Activities;
 
 import android.content.Context;
 import android.content.Intent;
-import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,7 +12,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.Adapters.User;
 
-import java.io.Serializable;
 import java.util.List;
 
 public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.UserViewHolder> {
@@ -38,9 +36,9 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.UserViewHold
     public void onBindViewHolder(@NonNull UserViewHolder holder, int position) {
         User user = userList.get(position);
 
-        holder.textViewFullName.setText(user.getFullName());
-        holder.textUserEmail.setText(user.getUserEmail());
-        holder.textIsValidated.setText(user.getIsValidated());
+        holder.textViewfullName.setText(user.getfullName());
+        holder.textuserEmail.setText(user.getuserEmail());
+        holder.textisValidated.setText(user.getIsValidated());
     }
 
     @Override
@@ -50,14 +48,14 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.UserViewHold
 
     class UserViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
-        TextView textViewFullName, textUserEmail, textIsValidated;
+        TextView textViewfullName, textuserEmail, textisValidated;
 
         public UserViewHolder(View itemView) {
             super(itemView);
 
-            textViewFullName = itemView.findViewById(R.id.textview_fullName);
-            textUserEmail = itemView.findViewById(R.id.textview_email);
-            textIsValidated = itemView.findViewById(R.id.textview_isValidated);
+            textViewfullName = itemView.findViewById(R.id.textview_fullName);
+            textuserEmail = itemView.findViewById(R.id.textview_email);
+            textisValidated = itemView.findViewById(R.id.textview_isValidated);
 
             itemView.setOnClickListener(this);
         }

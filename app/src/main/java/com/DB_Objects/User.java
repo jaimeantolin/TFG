@@ -1,4 +1,4 @@
-package com.Adapters;
+package com.DB_Objects;
 
 import com.google.firebase.firestore.Exclude;
 

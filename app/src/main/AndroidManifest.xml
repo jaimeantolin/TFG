@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".UpdateUserActivity"></activity>
+        <activity android:name=".NewElementActivity"></activity>
+        <activity android:name=".UpdateUserActivity" />
         <activity android:name=".CreadorActivity" />
         <activity android:name=".AdminActivity" />
         <activity android:name=".LoginActivity">

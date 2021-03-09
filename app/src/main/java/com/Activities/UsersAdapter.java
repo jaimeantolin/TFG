@@ -10,7 +10,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.Adapters.User;
+import com.DB_Objects.User;
 
 import java.util.List;
 

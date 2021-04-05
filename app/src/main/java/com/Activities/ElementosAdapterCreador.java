@@ -14,11 +14,11 @@ import com.DB_Objects.Elemento;
 
 import java.util.List;
 
-public class ElementosAdapter extends RecyclerView.Adapter<ElementosAdapter.ElementoViewHolder>{
+public class ElementosAdapterCreador extends RecyclerView.Adapter<ElementosAdapterCreador.ElementoViewHolder>{
     private Context mCtx;
     private List<Elemento> elementoList;
 
-    public ElementosAdapter(Context mCtx, List<Elemento> elementoList) {
+    public ElementosAdapterCreador(Context mCtx, List<Elemento> elementoList) {
         this.mCtx = mCtx;
         this.elementoList = elementoList;
     }
@@ -27,7 +27,7 @@ public class ElementosAdapter extends RecyclerView.Adapter<ElementosAdapter.Elem
     @Override
     public ElementoViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         return new ElementoViewHolder(
-                LayoutInflater.from(mCtx).inflate(R.layout.layout_elemento, parent, false)
+                LayoutInflater.from(mCtx).inflate(R.layout.layout_elemento_creador, parent, false)
         );
     }
 

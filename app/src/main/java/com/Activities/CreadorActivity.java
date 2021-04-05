@@ -10,7 +10,6 @@ import android.view.View;
 import android.widget.Button;
 
 import com.DB_Objects.Elemento;
-import com.DB_Objects.User;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -23,7 +22,7 @@ import java.util.List;
 public class CreadorActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
-    private ElementosAdapter adapter;
+    private ElementosAdapterCreador adapter;
     private List<Elemento> elementList;
     private FirebaseFirestore db;
 
@@ -55,7 +54,7 @@ public class CreadorActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         elementList = new ArrayList<>();
-        adapter = new ElementosAdapter(this, elementList);
+        adapter = new ElementosAdapterCreador(this, elementList);
 
         recyclerView.setAdapter(adapter);
 

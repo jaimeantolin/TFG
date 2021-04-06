@@ -40,9 +40,7 @@ public class CreadorActivity extends AppCompatActivity {
             }
         });
 
-        Button add = findViewById(R.id.button2);
-
-        add.setOnClickListener(new View.OnClickListener() {
+       findViewById(R.id.button2).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getApplicationContext(),NewElementActivity.class));

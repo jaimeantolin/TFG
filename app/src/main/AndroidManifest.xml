@@ -27,6 +27,7 @@
         </activity>
         <activity android:name=".RegisterActivity" />
         <activity android:name=".PacienteActivity" />
+        <activity android:name=".UpdateElementoActivity" />
 
         <provider
             android:name="androidx.core.content.FileProvider"

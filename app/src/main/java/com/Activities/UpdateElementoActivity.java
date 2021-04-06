@@ -2,7 +2,9 @@ package com.Activities;
 
 import android.Manifest;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.ContentResolver;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
@@ -12,6 +14,7 @@ import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
 import android.webkit.MimeTypeMap;
+import android.webkit.URLUtil;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -24,8 +27,10 @@ import androidx.core.content.ContextCompat;
 import androidx.core.content.FileProvider;
 
 import com.DB_Objects.Elemento;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
@@ -64,6 +69,8 @@ public class UpdateElementoActivity extends AppCompatActivity {
         element = (Elemento) getIntent().getSerializableExtra("elemento");
         db = FirebaseFirestore.getInstance();
 
+        imageFileName = element.getFoto();
+
         editTextNombre = findViewById(R.id.edittext_Nombre2);
         editTextDesc = findViewById(R.id.edittext_Descripcion2);
         editTextSensorID = findViewById(R.id.edittext_sensorID2);
@@ -97,11 +104,49 @@ public class UpdateElementoActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 updateElemento();
-                startActivity(new Intent(getApplicationContext(), CreadorActivity.class));
-
             }
         });
 
+        findViewById(R.id.button_eliminar).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(UpdateElementoActivity.this);
+                builder.setTitle("¿Estas seguro?");
+                builder.setMessage("Eliminar es permanente");
+
+                builder.setPositiveButton("Si", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        eliminarElemento();
+                    }
+                });
+
+                builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                    }
+                });
+
+                AlertDialog ad = builder.create();
+                ad.show();
+            }
+        });
+
+    }
+
+    private void eliminarElemento() {
+        db.collection("Conocimiento").document(element.getId()).delete().addOnCompleteListener(new OnCompleteListener() {
+            @Override
+            public void onComplete(@NonNull Task task) {
+                if(task.isSuccessful()){
+                    Toast.makeText(UpdateElementoActivity.this, "Elemento Eliminado", Toast.LENGTH_LONG).show();
+                    finish();
+                    storageReference.child("images/" + URLUtil.guessFileName(imageFileName, "filename.jpg", ".jpg" )).delete(); // Should delete old image from storage
+                    startActivity(new Intent(getApplicationContext(), CreadorActivity.class));
+                }
+            }
+        });
     }
 
     private boolean hasValidationErrors(String nombre, String desc, String sensorID, String foto) {
@@ -132,37 +177,35 @@ public class UpdateElementoActivity extends AppCompatActivity {
     }
 
     private void updateElemento() {
-        String sImage;
 
         if(contentUri != null && !contentUri.toString().equals(element.getFoto())){
             uploadImageToFirebase(imageFileName, contentUri);
-            sImage= contentUri.toString();
+
         }else {
-            sImage = element.getFoto();
-        }
+            String sImage = element.getFoto();
+            String sNombre = editTextNombre.getText().toString().trim();
+            String sDesc = editTextDesc.getText().toString().trim();
+            String sSensorId = editTextSensorID.getText().toString().trim();
 
-        String sNombre = editTextNombre.getText().toString().trim();
-        String sDesc = editTextDesc.getText().toString().trim();
-        String sSensorId = editTextSensorID.getText().toString().trim();
+            if(!hasValidationErrors(sNombre, sDesc, sSensorId, sImage)){
 
+                CollectionReference dbConocimiento = db.collection("Conocimiento");
 
-        if(!hasValidationErrors(sNombre, sDesc, sSensorId, sImage)){
+                Elemento elemento = new Elemento(sNombre, sDesc, sSensorId, sImage);
 
-            CollectionReference dbConocimiento = db.collection("Conocimiento");
-
-            Elemento elemento = new Elemento(sNombre, sDesc, sSensorId, sImage);
-
-            dbConocimiento.document(element.getId()).set(elemento).addOnSuccessListener(new OnSuccessListener() {
-                @Override
-                public void onSuccess(Object o) {
-                    Toast.makeText(UpdateElementoActivity.this, "Base de conocimiento modificada", Toast.LENGTH_SHORT).show();
-                }
-            }).addOnFailureListener(new OnFailureListener() {
-                @Override
-                public void onFailure(@NonNull Exception e) {
-                    Toast.makeText(UpdateElementoActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
-                }
-            });
+                dbConocimiento.document(element.getId()).set(elemento).addOnSuccessListener(new OnSuccessListener() {
+                    @Override
+                    public void onSuccess(Object o) {
+                        Toast.makeText(UpdateElementoActivity.this, "Base de conocimiento modificada", Toast.LENGTH_SHORT).show();
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(UpdateElementoActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                });
+             }
+            startActivity(new Intent(getApplicationContext(), CreadorActivity.class));
         }
     }
 
@@ -175,6 +218,31 @@ public class UpdateElementoActivity extends AppCompatActivity {
                     @Override
                     public void onSuccess(Uri uri) {
                         Log.d("tag", "onSuccess: Uploaded Image Uri is " +  uri.toString());
+
+                        String sImage= uri.toString();
+                        String sNombre = editTextNombre.getText().toString().trim();
+                        String sDesc = editTextDesc.getText().toString().trim();
+                        String sSensorId = editTextSensorID.getText().toString().trim();
+
+                        if(!hasValidationErrors(sNombre, sDesc, sSensorId, sImage)){
+
+                            CollectionReference dbConocimiento = db.collection("Conocimiento");
+
+                            Elemento elemento = new Elemento(sNombre, sDesc, sSensorId, sImage);
+
+                            dbConocimiento.document(element.getId()).set(elemento).addOnSuccessListener(new OnSuccessListener() {
+                                @Override
+                                public void onSuccess(Object o) {
+                                    Toast.makeText(UpdateElementoActivity.this, "Base de conocimiento modificada", Toast.LENGTH_SHORT).show();
+                                }
+                            }).addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                    Toast.makeText(UpdateElementoActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                                }
+                            });
+                        }
+                        startActivity(new Intent(getApplicationContext(), CreadorActivity.class));
                     }
 
                 });
@@ -203,6 +271,7 @@ public class UpdateElementoActivity extends AppCompatActivity {
                 mediaScanIntent.setData(contentUri);
                 this.sendBroadcast(mediaScanIntent);
 
+                storageReference.child("images/" + URLUtil.guessFileName(imageFileName, "filename.jpg", ".jpg" )).delete(); // Should delete old image from storage
                 imageFileName = f.getName();
             }
         }
@@ -211,6 +280,7 @@ public class UpdateElementoActivity extends AppCompatActivity {
             if(resultCode == Activity.RESULT_OK){
                 contentUri = data.getData();
                 String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+                storageReference.child("images/" + URLUtil.guessFileName(imageFileName, "filename.jpg", ".jpg" )).delete(); // Should delete old image from storage
                 imageFileName = "JPEG_" + timeStamp +"."+ getFileExt(contentUri);
                 Log.d("tag", "onActivityResult: Gallery Image Uri:  " +  imageFileName);
                 image.setImageURI(contentUri);

@@ -97,30 +97,6 @@ public class NewElementActivity extends AppCompatActivity{
             public void onClick(View v) {
                 Toast.makeText(NewElementActivity.this, "Upload presionado", Toast.LENGTH_SHORT).show();
                 uploadImageToFirebase(imageFileName, contentUri);
-                String nombre = editTextNombre.getText().toString().trim();
-                String desc = editTextDesc.getText().toString().trim();
-                String sensorID = editTextSensorID.getText().toString().trim();
-                String foto = contentUri.toString();
-
-                if(!validateInputs(nombre, desc, sensorID, foto)){
-
-                    CollectionReference dbConocimiento = db.collection("Conocimiento");
-
-                    Elemento elemento = new Elemento(nombre, desc, sensorID, foto);
-
-                    dbConocimiento.add(elemento).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-                        @Override
-                        public void onSuccess(DocumentReference documentReference) {
-                            Toast.makeText(NewElementActivity.this, "Añadido a base de conocimiento", Toast.LENGTH_SHORT).show();
-                        }
-                    }).addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception e) {
-                            Toast.makeText(NewElementActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
-                        }
-                    });
-                }
-                //startActivity(new Intent(getApplicationContext(), AdminActivity.class));
 
             }
         });
@@ -211,6 +187,31 @@ public class NewElementActivity extends AppCompatActivity{
                     @Override
                     public void onSuccess(Uri uri) {
                         Log.d("tag", "onSuccess: Uploaded Image Uri is " +  uri.toString());
+                        String nombre = editTextNombre.getText().toString().trim();
+                        String desc = editTextDesc.getText().toString().trim();
+                        String sensorID = editTextSensorID.getText().toString().trim();
+                        String image = uri.toString();
+
+                        if(!validateInputs(nombre, desc, sensorID, image)){
+
+                            CollectionReference dbConocimiento = db.collection("Conocimiento");
+
+                            Elemento elemento = new Elemento(nombre, desc, sensorID, image);
+
+                            dbConocimiento.add(elemento).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                                @Override
+                                public void onSuccess(DocumentReference documentReference) {
+                                    Toast.makeText(NewElementActivity.this, "Añadido a base de conocimiento", Toast.LENGTH_SHORT).show();
+                                }
+                            }).addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                    Toast.makeText(NewElementActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                                }
+                            });
+
+                            startActivity(new Intent(getApplicationContext(), CreadorActivity.class));
+                        }
                     }
 
                 });

@@ -6,16 +6,16 @@ import java.io.Serializable;
 
 public class Elemento implements Serializable {
     @Exclude private String id;
-    private String nombre, desc, sensorID, foto;
+    private String nombre, desc, label, foto;
 
     public Elemento(){
 
     }
 
-    public Elemento(String nombre, String desc, String sensorID, String foto){
+    public Elemento(String nombre, String desc, String label, String foto){
         this.nombre = nombre;
         this.desc = desc;
-        this.sensorID = sensorID;
+        this.label = label;
         this.foto = foto;
     }
 
@@ -35,12 +35,12 @@ public class Elemento implements Serializable {
         this.desc = desc;
     }
 
-    public String getSensorID() {
-        return sensorID;
+    public String getLabel() {
+        return label;
     }
 
-    public void setSensorID(String sensorID) {
-        this.sensorID = sensorID;
+    public void setLabel(String label) {
+        this.label = label;
     }
 
     public String getFoto() {

@@ -63,7 +63,7 @@ public class UpdateElementoActivity extends AppCompatActivity {
     public static final int GALERIA_REQUEST_CODE = 105;
 
     private EditText editTextNombre, editTextDesc;
-    private TextView editTextLabel;
+    private TextView textViewLabel;
     private ImageView image;
 
     private FirebaseFirestore db;
@@ -88,12 +88,12 @@ public class UpdateElementoActivity extends AppCompatActivity {
 
         editTextNombre = findViewById(R.id.edittext_Nombre2);
         editTextDesc = findViewById(R.id.edittext_Descripcion2);
-        editTextLabel = findViewById(R.id.textview_sensorID2);
+        textViewLabel = findViewById(R.id.textview_sensorID2);
         image = findViewById(R.id.imageView3);
 
         editTextNombre.setText(element.getNombre());
         editTextDesc.setText(element.getDesc());
-        editTextLabel.setText(element.getSensorID());
+        textViewLabel.setText(element.getLabel());
         Picasso.get().load(element.getFoto()).into(image);
 
         storageReference = FirebaseStorage.getInstance().getReference();
@@ -180,8 +180,8 @@ public class UpdateElementoActivity extends AppCompatActivity {
         }
 
         if (sensorID.isEmpty()) {
-            editTextLabel.setError("Description required");
-            editTextLabel.requestFocus();
+            textViewLabel.setError("Description required");
+            textViewLabel.requestFocus();
             return true;
         }
 
@@ -202,7 +202,7 @@ public class UpdateElementoActivity extends AppCompatActivity {
             String sImage = element.getFoto();
             String sNombre = editTextNombre.getText().toString().trim();
             String sDesc = editTextDesc.getText().toString().trim();
-            String sLabel = editTextLabel.getText().toString().trim();
+            String sLabel = textViewLabel.getText().toString().trim();
 
             if(!hasValidationErrors(sNombre, sDesc, sLabel, sImage)){
 
@@ -239,13 +239,13 @@ public class UpdateElementoActivity extends AppCompatActivity {
                         String sImage= uri.toString();
                         String sNombre = editTextNombre.getText().toString().trim();
                         String sDesc = editTextDesc.getText().toString().trim();
-                        String sSensorId = editTextLabel.getText().toString().trim();
+                        String sLabel = textViewLabel.getText().toString().trim();
 
-                        if(!hasValidationErrors(sNombre, sDesc, sSensorId, sImage)){
+                        if(!hasValidationErrors(sNombre, sDesc, sLabel, sImage)){
 
                             CollectionReference dbConocimiento = db.collection("Conocimiento");
 
-                            Elemento elemento = new Elemento(sNombre, sDesc, sSensorId, sImage);
+                            Elemento elemento = new Elemento(sNombre, sDesc, sLabel, sImage);
 
                             dbConocimiento.document(element.getId()).set(elemento).addOnSuccessListener(new OnSuccessListener() {
                                 @Override
@@ -434,7 +434,7 @@ public class UpdateElementoActivity extends AppCompatActivity {
                                     }
                                 }
 
-                                editTextLabel.setText(bestLabel);
+                                textViewLabel.setText(bestLabel);
                             }
                         }
                     });

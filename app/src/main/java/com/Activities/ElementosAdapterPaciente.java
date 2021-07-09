@@ -1,7 +1,6 @@
 package com.Activities;
 
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -38,7 +37,7 @@ public class ElementosAdapterPaciente extends RecyclerView.Adapter<ElementosAdap
         Elemento element = elementoList.get(position);
 
         holder.textviewNombre.setText(element.getNombre());
-        holder.textViewSensorID.setText(element.getSensorID());
+        holder.textViewSensorID.setText(element.getLabel());
         holder.textViewDesc.setText(element.getDesc());
         Picasso.get().load(element.getFoto()).into(holder.image);
     }

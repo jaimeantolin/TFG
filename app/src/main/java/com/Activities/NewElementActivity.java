@@ -62,7 +62,7 @@ public class NewElementActivity extends AppCompatActivity{
     ImageView selectedImage;
     Button btnCamara, btnGaleria, btnUpload;
     EditText editTextNombre, editTextDesc;
-    TextView editTextLabel;
+    TextView textViewLabel;
     String currentPhotoPath;
     StorageReference storageReference;
 
@@ -84,7 +84,7 @@ public class NewElementActivity extends AppCompatActivity{
 
         editTextNombre = findViewById(R.id.edittext_Nombre);
         editTextDesc = findViewById(R.id.edittext_Descripcion);
-        editTextLabel = findViewById(R.id.textview_Label);
+        textViewLabel = findViewById(R.id.textview_Label);
 
         db = FirebaseFirestore.getInstance();
 
@@ -169,7 +169,7 @@ public class NewElementActivity extends AppCompatActivity{
                                     }
                                 }
 
-                                editTextLabel.setText(bestLabel);
+                                textViewLabel.setText(bestLabel);
                             }
                         }
                     });
@@ -211,8 +211,8 @@ public class NewElementActivity extends AppCompatActivity{
         }
 
         if (sensorID.isEmpty()) {
-            editTextLabel.setError("Labels required");
-            editTextLabel.requestFocus();
+            textViewLabel.setError("Labels required");
+            textViewLabel.requestFocus();
             return true;
         }
 
@@ -288,14 +288,14 @@ public class NewElementActivity extends AppCompatActivity{
                         Log.d("tag", "onSuccess: Uploaded Image Uri is " +  uri.toString());
                         String nombre = editTextNombre.getText().toString().trim();
                         String desc = editTextDesc.getText().toString().trim();
-                        String sensorID = editTextLabel.getText().toString().trim();
+                        String label = textViewLabel.getText().toString().trim();
                         String image = uri.toString();
 
-                        if(!validateInputs(nombre, desc, sensorID, image)){
+                        if(!validateInputs(nombre, desc, label, image)){
 
                             CollectionReference dbConocimiento = db.collection("Conocimiento");
 
-                            Elemento elemento = new Elemento(nombre, desc, sensorID, image);
+                            Elemento elemento = new Elemento(nombre, desc, label, image);
 
                             dbConocimiento.add(elemento).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                                 @Override

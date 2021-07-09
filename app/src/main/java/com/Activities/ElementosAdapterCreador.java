@@ -36,7 +36,7 @@ public class ElementosAdapterCreador extends RecyclerView.Adapter<ElementosAdapt
         Elemento element = elementoList.get(position);
 
         holder.textviewNombre.setText(element.getNombre());
-        holder.textViewSensorID.setText(element.getSensorID());
+        holder.textViewSensorID.setText(element.getLabel());
         holder.textViewDesc.setText(element.getDesc());
 
     }

@@ -30,6 +30,7 @@
         <activity android:name=".RegisterActivity" />
         <activity android:name=".PacienteActivity" />
         <activity android:name=".UpdateElementoActivity" />
+        <activity android:name=".DatosPacienteActivity" />
 
         <provider
             android:name="androidx.core.content.FileProvider"

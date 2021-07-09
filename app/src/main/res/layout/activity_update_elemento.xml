@@ -47,14 +47,15 @@
             android:hint="Descripción"
             android:padding="10dp" />
 
-        <EditText
-            android:id="@+id/edittext_sensorID2"
+        <TextView
+            android:id="@+id/textview_sensorID2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:layout_marginBottom="5dp"
-            android:hint="ID del Sensor"
-            android:padding="10dp" />
+            android:hint="Etiqueta Clasificacion"
+            android:padding="10dp"
+            android:textSize="18sp" />
 
 
         <ImageView

@@ -24,6 +24,7 @@ import android.webkit.MimeTypeMap;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.DB_Objects.Elemento;
@@ -60,7 +61,8 @@ public class NewElementActivity extends AppCompatActivity{
     public static final int GALERIA_REQUEST_CODE = 105;
     ImageView selectedImage;
     Button btnCamara, btnGaleria, btnUpload;
-    EditText editTextNombre, editTextDesc, editTextLabel;
+    EditText editTextNombre, editTextDesc;
+    TextView editTextLabel;
     String currentPhotoPath;
     StorageReference storageReference;
 
@@ -82,7 +84,7 @@ public class NewElementActivity extends AppCompatActivity{
 
         editTextNombre = findViewById(R.id.edittext_Nombre);
         editTextDesc = findViewById(R.id.edittext_Descripcion);
-        editTextLabel = findViewById(R.id.edittext_Label);
+        editTextLabel = findViewById(R.id.textview_Label);
 
         db = FirebaseFirestore.getInstance();
 

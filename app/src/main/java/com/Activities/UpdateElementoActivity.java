@@ -7,16 +7,19 @@ import android.content.ContentResolver;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
+import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 import android.webkit.MimeTypeMap;
 import android.webkit.URLUtil;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -27,17 +30,27 @@ import androidx.core.content.ContextCompat;
 import androidx.core.content.FileProvider;
 
 import com.DB_Objects.Elemento;
+import com.google.android.gms.tasks.Continuation;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.functions.FirebaseFunctions;
+import com.google.firebase.functions.HttpsCallableResult;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
+import com.google.gson.Gson;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+import com.google.gson.JsonPrimitive;
 import com.squareup.picasso.Picasso;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
@@ -49,10 +62,12 @@ public class UpdateElementoActivity extends AppCompatActivity {
     public static final int CAMERA_REQUEST_CODE = 102;
     public static final int GALERIA_REQUEST_CODE = 105;
 
-    private EditText editTextNombre, editTextDesc, editTextSensorID;
+    private EditText editTextNombre, editTextDesc;
+    private TextView editTextLabel;
     private ImageView image;
 
     private FirebaseFirestore db;
+    FirebaseFunctions mFunctions;
 
     private Elemento element;
     StorageReference storageReference;
@@ -73,15 +88,17 @@ public class UpdateElementoActivity extends AppCompatActivity {
 
         editTextNombre = findViewById(R.id.edittext_Nombre2);
         editTextDesc = findViewById(R.id.edittext_Descripcion2);
-        editTextSensorID = findViewById(R.id.edittext_sensorID2);
+        editTextLabel = findViewById(R.id.textview_sensorID2);
         image = findViewById(R.id.imageView3);
 
         editTextNombre.setText(element.getNombre());
         editTextDesc.setText(element.getDesc());
-        editTextSensorID.setText(element.getSensorID());
+        editTextLabel.setText(element.getSensorID());
         Picasso.get().load(element.getFoto()).into(image);
 
         storageReference = FirebaseStorage.getInstance().getReference();
+
+        mFunctions = FirebaseFunctions.getInstance();
 
         findViewById(R.id.btnCamara2).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -163,8 +180,8 @@ public class UpdateElementoActivity extends AppCompatActivity {
         }
 
         if (sensorID.isEmpty()) {
-            editTextSensorID.setError("Description required");
-            editTextSensorID.requestFocus();
+            editTextLabel.setError("Description required");
+            editTextLabel.requestFocus();
             return true;
         }
 
@@ -185,13 +202,13 @@ public class UpdateElementoActivity extends AppCompatActivity {
             String sImage = element.getFoto();
             String sNombre = editTextNombre.getText().toString().trim();
             String sDesc = editTextDesc.getText().toString().trim();
-            String sSensorId = editTextSensorID.getText().toString().trim();
+            String sLabel = editTextLabel.getText().toString().trim();
 
-            if(!hasValidationErrors(sNombre, sDesc, sSensorId, sImage)){
+            if(!hasValidationErrors(sNombre, sDesc, sLabel, sImage)){
 
                 CollectionReference dbConocimiento = db.collection("Conocimiento");
 
-                Elemento elemento = new Elemento(sNombre, sDesc, sSensorId, sImage);
+                Elemento elemento = new Elemento(sNombre, sDesc, sLabel, sImage);
 
                 dbConocimiento.document(element.getId()).set(elemento).addOnSuccessListener(new OnSuccessListener() {
                     @Override
@@ -222,7 +239,7 @@ public class UpdateElementoActivity extends AppCompatActivity {
                         String sImage= uri.toString();
                         String sNombre = editTextNombre.getText().toString().trim();
                         String sDesc = editTextDesc.getText().toString().trim();
-                        String sSensorId = editTextSensorID.getText().toString().trim();
+                        String sSensorId = editTextLabel.getText().toString().trim();
 
                         if(!hasValidationErrors(sNombre, sDesc, sSensorId, sImage)){
 
@@ -273,6 +290,8 @@ public class UpdateElementoActivity extends AppCompatActivity {
 
                 storageReference.child("images/" + URLUtil.guessFileName(imageFileName, "filename.jpg", ".jpg" )).delete(); // Should delete old image from storage
                 imageFileName = f.getName();
+
+                labelImage();
             }
         }
 
@@ -284,6 +303,8 @@ public class UpdateElementoActivity extends AppCompatActivity {
                 imageFileName = "JPEG_" + timeStamp +"."+ getFileExt(contentUri);
                 Log.d("tag", "onActivityResult: Gallery Image Uri:  " +  imageFileName);
                 image.setImageURI(contentUri);
+
+                labelImage();
             }
         }
     }
@@ -362,5 +383,81 @@ public class UpdateElementoActivity extends AppCompatActivity {
             }
 
         }
+    }
+
+    private void labelImage(){
+        try {
+            Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), contentUri);
+            // Convert bitmap to base64 encoded string
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, byteArrayOutputStream);
+            byte[] imageBytes = byteArrayOutputStream.toByteArray();
+            String base64encoded = Base64.encodeToString(imageBytes, Base64.NO_WRAP);
+
+            // Create json request to cloud vision
+            JsonObject request = new JsonObject();
+            // Add image to request
+            JsonObject image = new JsonObject();
+            image.add("content", new JsonPrimitive(base64encoded));
+            request.add("image", image);
+            //Add features to the request
+            JsonObject feature = new JsonObject();
+            feature.add("maxResults", new JsonPrimitive(5));
+            feature.add("type", new JsonPrimitive("LABEL_DETECTION"));
+            JsonArray features = new JsonArray();
+            features.add(feature);
+            request.add("features", features);
+
+            annotateImage(request.toString())
+                    .addOnCompleteListener(new OnCompleteListener<JsonElement>() {
+                        @Override
+                        public void onComplete(@NonNull Task<JsonElement> task) {
+                            if (!task.isSuccessful()) {
+                                // Task failed with an exception
+                                // ...
+                                Toast.makeText(UpdateElementoActivity.this, "Failed to classify image", Toast.LENGTH_SHORT).show();
+                            } else {
+                                // Task completed successfully
+                                // ...
+                                String bestLabel = "";
+                                float highestScore = 0;
+
+                                for (JsonElement label : task.getResult().getAsJsonArray().get(0).getAsJsonObject().get("labelAnnotations").getAsJsonArray()) {
+                                    JsonObject labelObj = label.getAsJsonObject();
+                                    String text = labelObj.get("description").getAsString();
+                                    String entityId = labelObj.get("mid").getAsString();
+                                    float score = labelObj.get("score").getAsFloat();
+
+                                    if(score > highestScore){
+                                        bestLabel = text;
+                                        highestScore = score;
+                                    }
+                                }
+
+                                editTextLabel.setText(bestLabel);
+                            }
+                        }
+                    });
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
+    }
+
+    private Task<JsonElement> annotateImage(String requestJson) {
+        return mFunctions
+                .getHttpsCallable("annotateImage")
+                .call(requestJson)
+                .continueWith(new Continuation<HttpsCallableResult, JsonElement>() {
+                    @Override
+                    public JsonElement then(@NonNull Task<HttpsCallableResult> task) {
+                        // This continuation runs on either success or failure, but if the task
+                        // has failed then getResult() will throw an Exception which will be
+                        // propagated down.
+                        return JsonParser.parseString(new Gson().toJson(task.getResult().getData()));
+                    }
+                });
     }
 }

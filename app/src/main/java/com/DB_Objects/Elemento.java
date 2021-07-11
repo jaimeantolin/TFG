@@ -18,6 +18,10 @@ public class Elemento implements Serializable {
         this.label = label;
         this.foto = foto;
     }
+    // copy constructor
+    public Elemento(Elemento elem) {
+        this(elem.nombre, elem.desc, elem.label, elem.foto);
+    }
 
     public String getNombre() {
         return nombre;

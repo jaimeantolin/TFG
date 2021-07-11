@@ -16,7 +16,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:requestLegacyExternalStorage="true">
-        <activity android:name=".NewElementActivity"></activity>
+        <activity android:name=".NewElementActivity"/>
         <activity android:name=".UpdateUserActivity" />
         <activity android:name=".CreadorActivity" />
         <activity android:name=".AdminActivity" />
@@ -31,6 +31,8 @@
         <activity android:name=".PacienteActivity" />
         <activity android:name=".UpdateElementoActivity" />
         <activity android:name=".DatosPacienteActivity" />
+        <activity android:name=".JuegoActivity" />
+        <activity android:name=".SinPreguntasActivity" />
 
         <provider
             android:name="androidx.core.content.FileProvider"
@@ -39,7 +41,7 @@
             android:grantUriPermissions="true">
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/file_paths"></meta-data>
+                android:resource="@xml/file_paths"/>
         </provider>
     </application>
 

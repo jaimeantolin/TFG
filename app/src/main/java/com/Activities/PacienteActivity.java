@@ -70,6 +70,7 @@ public class PacienteActivity extends AppCompatActivity {
         setContentView(R.layout.activity_paciente);
 
         Button escanear = findViewById(R.id.buttonEscanear);
+        Button juego = findViewById(R.id.buttonJuego);
         Button logout = findViewById(R.id.logoutBtn);
 
         mFunctions = FirebaseFunctions.getInstance();
@@ -77,7 +78,15 @@ public class PacienteActivity extends AppCompatActivity {
         escanear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 pedirPermisos();
+            }
+        });
+
+        juego.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), JuegoActivity.class));
             }
         });
 

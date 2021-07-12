@@ -30,6 +30,7 @@ public class UpdateUserActivity extends AppCompatActivity implements View.OnClic
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getSupportActionBar().hide(); // Elimina barra con titulo
         setContentView(R.layout.activity_update_user);
 
         user = (User) getIntent().getSerializableExtra("user");

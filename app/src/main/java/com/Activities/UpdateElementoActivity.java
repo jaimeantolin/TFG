@@ -79,6 +79,7 @@ public class UpdateElementoActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getSupportActionBar().hide(); // Elimina barra con titulo
         setContentView(R.layout.activity_update_elemento);
 
         element = (Elemento) getIntent().getSerializableExtra("elemento");

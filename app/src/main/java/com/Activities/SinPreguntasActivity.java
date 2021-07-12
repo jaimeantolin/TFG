@@ -2,6 +2,7 @@ package com.Activities;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -16,6 +17,7 @@ public class SinPreguntasActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getSupportActionBar().hide(); // Elimina barra con titulo
         setContentView(R.layout.sin_preguntas);
 
         correct = findViewById(R.id.textViewCorrectTotal);
@@ -36,7 +38,9 @@ public class SinPreguntasActivity extends AppCompatActivity {
 
         correct.setText(String.valueOf(numCorrect));
         incorrect.setText(String.valueOf(numIncorrect));
-        percentage.setText(String.valueOf((numCorrect / (numIncorrect + numCorrect)) * 100) + "%");
+        int calc = (numCorrect / (numIncorrect + numCorrect))*100;
+        Log.d("tag", "percent is " + String.valueOf(calc));
+        percentage.setText(String.valueOf(calc) + "%");
 
         playAgain.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -32,6 +32,7 @@ public class DatosPacienteActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getSupportActionBar().hide(); // Elimina barra con titulo
         setContentView(R.layout.datos_paciente);
 
         Bundle extras = getIntent().getExtras();

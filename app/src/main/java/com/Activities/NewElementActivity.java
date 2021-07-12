@@ -75,6 +75,7 @@ public class NewElementActivity extends AppCompatActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getSupportActionBar().hide(); // Elimina barra con titulo
         setContentView(R.layout.activity_new_element);
 
         selectedImage = findViewById(R.id.imageView);

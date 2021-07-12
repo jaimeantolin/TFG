@@ -53,6 +53,7 @@ public class JuegoActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getSupportActionBar().hide(); // Elimina barra con titulo
         setContentView(R.layout.activity_juego);
 
         buttonA = findViewById(R.id.buttonA);

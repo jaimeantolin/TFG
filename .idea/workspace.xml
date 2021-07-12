@@ -31,31 +31,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8d5ea09c-e31d-4bf7-8619-5d8692cdfc99" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/Activities/JuegoActivity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/Activities/SinPreguntasActivity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/DB_Objects/Pregunta.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/check.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/remove.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_juego.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/dialog_correcto.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/dialog_incorrecto.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/sin_preguntas.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.7.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7.1/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.7.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7.1/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.7.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7.1/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.7.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7.1/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.7.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.7.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7.1/javaCompile/classAnalysis.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.7.1/javaCompile/jarAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7.1/javaCompile/jarAnalysis.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.7.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7.1/javaCompile/javaCompile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.7.1/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7.1/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/Activities/AdminActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/Activities/AdminActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/Activities/CreadorActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/Activities/CreadorActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/Activities/DatosPacienteActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/Activities/DatosPacienteActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/Activities/JuegoActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/Activities/JuegoActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/Activities/LoginActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/Activities/LoginActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/Activities/NewElementActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/Activities/NewElementActivity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/Activities/PacienteActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/Activities/PacienteActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/DB_Objects/Elemento.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/DB_Objects/Elemento.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/Activities/RegisterActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/Activities/RegisterActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/Activities/SinPreguntasActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/Activities/SinPreguntasActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/Activities/UpdateElementoActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/Activities/UpdateElementoActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/Activities/UpdateUserActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/Activities/UpdateUserActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_juego.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_juego.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_paciente.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_paciente.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/datos_paciente.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/datos_paciente.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -252,29 +249,29 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="275" key="FileChooserDialogImpl/0.1080.1536.824/0.0.1920.1040@0.0.1920.1040" timestamp="1626015112046" />
-    <state width="1877" height="389" key="GridCell.Tab.0.bottom" timestamp="1626023093947">
+    <state width="1877" height="227" key="GridCell.Tab.0.bottom" timestamp="1626086135630">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1876" height="372" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1617715735573" />
-    <state width="1877" height="389" key="GridCell.Tab.0.bottom/0.1080.1536.824/0.0.1920.1040@0.0.1920.1040" timestamp="1626023093947" />
+    <state width="1877" height="227" key="GridCell.Tab.0.bottom/0.1080.1536.824/0.0.1920.1040@0.0.1920.1040" timestamp="1626086135630" />
     <state width="1876" height="263" key="GridCell.Tab.0.bottom/1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1617278258347" />
-    <state width="1877" height="389" key="GridCell.Tab.0.center" timestamp="1626023093946">
+    <state width="1877" height="227" key="GridCell.Tab.0.center" timestamp="1626086135630">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1876" height="372" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1617715735573" />
-    <state width="1877" height="389" key="GridCell.Tab.0.center/0.1080.1536.824/0.0.1920.1040@0.0.1920.1040" timestamp="1626023093946" />
+    <state width="1877" height="227" key="GridCell.Tab.0.center/0.1080.1536.824/0.0.1920.1040@0.0.1920.1040" timestamp="1626086135630" />
     <state width="1876" height="263" key="GridCell.Tab.0.center/1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1617278258347" />
-    <state width="1877" height="389" key="GridCell.Tab.0.left" timestamp="1626023093946">
+    <state width="1877" height="227" key="GridCell.Tab.0.left" timestamp="1626086135630">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1876" height="372" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1617715735573" />
-    <state width="1877" height="389" key="GridCell.Tab.0.left/0.1080.1536.824/0.0.1920.1040@0.0.1920.1040" timestamp="1626023093946" />
+    <state width="1877" height="227" key="GridCell.Tab.0.left/0.1080.1536.824/0.0.1920.1040@0.0.1920.1040" timestamp="1626086135630" />
     <state width="1876" height="263" key="GridCell.Tab.0.left/1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1617278258347" />
-    <state width="1877" height="389" key="GridCell.Tab.0.right" timestamp="1626023093947">
+    <state width="1877" height="227" key="GridCell.Tab.0.right" timestamp="1626086135630">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1876" height="372" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1617715735573" />
-    <state width="1877" height="389" key="GridCell.Tab.0.right/0.1080.1536.824/0.0.1920.1040@0.0.1920.1040" timestamp="1626023093947" />
+    <state width="1877" height="227" key="GridCell.Tab.0.right/0.1080.1536.824/0.0.1920.1040@0.0.1920.1040" timestamp="1626086135630" />
     <state width="1876" height="263" key="GridCell.Tab.0.right/1920.0.1536.832/0.0.1920.1040@0.0.1920.1040" timestamp="1617278258347" />
     <state width="1877" height="281" key="GridCell.Tab.1.bottom" timestamp="1626020234393">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -307,15 +304,6 @@
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.1080.1536.824/0.0.1920.1040@0.0.1920.1040" timestamp="1626014916495" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/Activities/CreadorActivity.java</url>
-          <line>86</line>
-          <option name="timeStamp" value="9" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <watches-manager>
       <configuration name="app">
         <watch expression="elementList" language="JAVA" />

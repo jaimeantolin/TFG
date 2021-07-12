@@ -39,11 +39,8 @@
         android:layout_marginStart="77dp"
         android:layout_marginTop="64dp"
         android:layout_marginEnd="78dp"
-        android:layout_marginBottom="33dp"
         android:text="Button"
-        app:layout_constraintBottom_toTopOf="@+id/buttonB"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageViewJuego" />
 

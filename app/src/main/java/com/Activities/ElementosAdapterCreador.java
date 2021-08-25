@@ -36,7 +36,7 @@ public class ElementosAdapterCreador extends RecyclerView.Adapter<ElementosAdapt
         Elemento element = elementoList.get(position);
 
         holder.textviewNombre.setText(element.getNombre());
-        holder.textViewSensorID.setText(element.getLabel());
+        holder.textViewLabel.setText(element.getLabel());
         holder.textViewDesc.setText(element.getDesc());
 
     }
@@ -48,13 +48,13 @@ public class ElementosAdapterCreador extends RecyclerView.Adapter<ElementosAdapt
 
     class ElementoViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
-        TextView textviewNombre, textViewSensorID, textViewDesc;
+        TextView textviewNombre, textViewLabel, textViewDesc;
 
         public ElementoViewHolder(View itemView){
             super(itemView);
 
             textviewNombre = itemView.findViewById(R.id.textview_nombre);
-            textViewSensorID = itemView.findViewById(R.id.textview_sensorID);
+            textViewLabel = itemView.findViewById(R.id.textview_label);
             textViewDesc = itemView.findViewById(R.id.textview_desc);
 
             itemView.setOnClickListener(this);

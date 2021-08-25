@@ -6,14 +6,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.core.content.FileProvider;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.Manifest;
 import android.app.Activity;
+import android.app.Dialog;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -22,20 +23,14 @@ import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
-import android.view.WindowManager;
 import android.widget.Button;
-import android.widget.ImageView;
+import android.widget.EditText;
 import android.widget.Toast;
 
-import com.DB_Objects.Elemento;
 import com.google.android.gms.tasks.Continuation;
 import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.firestore.DocumentSnapshot;
-import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.QuerySnapshot;
 import com.google.firebase.functions.FirebaseFunctions;
 import com.google.firebase.functions.HttpsCallableResult;
 import com.google.gson.Gson;
@@ -49,9 +44,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 
 public class PacienteActivity extends AppCompatActivity {
@@ -73,6 +66,7 @@ public class PacienteActivity extends AppCompatActivity {
         setContentView(R.layout.activity_paciente);
 
         Button escanear = findViewById(R.id.buttonEscanear);
+        Button buscar = findViewById(R.id.buttonBuscar);
         Button juego = findViewById(R.id.buttonJuego);
         Button logout = findViewById(R.id.logoutBtn);
 
@@ -83,6 +77,14 @@ public class PacienteActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 pedirPermisos();
+            }
+        });
+
+        buscar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                buscaDialog();
             }
         });
 
@@ -104,6 +106,49 @@ public class PacienteActivity extends AppCompatActivity {
 
 
     }
+
+    public void buscaDialog() {
+        final Dialog dialogBuscar = new Dialog(PacienteActivity.this);
+        dialogBuscar.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        if (dialogBuscar.getWindow() != null) {
+            ColorDrawable colorDrawable = new ColorDrawable(Color.TRANSPARENT);
+            dialogBuscar.getWindow().setBackgroundDrawable(colorDrawable);
+        }
+        dialogBuscar.setContentView(R.layout.dialog_buscar);
+        dialogBuscar.setCancelable(false);
+        dialogBuscar.show();
+
+        Button buttonBuscar = (Button) dialogBuscar.findViewById(R.id.dialogBuscar);
+        EditText editTextBuscar = (EditText) dialogBuscar.findViewById(R.id.editTextBusqueda);
+
+
+
+        buttonBuscar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                String elemBuscar = editTextBuscar.getText().toString().trim();
+
+                if (elemBuscar.isEmpty()) {
+                    editTextBuscar.setError("Nombre de objeto");
+                    editTextBuscar.requestFocus();
+                }
+                else {
+                    //This will dismiss the dialog
+                    dialogBuscar.dismiss();
+
+                    Intent showBusqueda = new Intent(getApplicationContext(), DatosBuscarActivity.class);
+                    showBusqueda.putExtra("Elem", elemBuscar);
+                    startActivity(showBusqueda);
+
+
+                }
+
+            }
+        });
+    }
+
+
 
     private void pedirPermisos() {
         Log.d("TAG", "VerifyingPermission : Asking for permission ");
@@ -244,7 +289,7 @@ public class PacienteActivity extends AppCompatActivity {
                                 }
 
                                 labelBusqueda = bestLabel;
-                                Intent showData = new Intent(getApplicationContext(), DatosPacienteActivity.class);
+                                Intent showData = new Intent(getApplicationContext(), DatosEscanearActivity.class);
                                 showData.putExtra("Label", labelBusqueda);
                                 startActivity(showData);
                             }

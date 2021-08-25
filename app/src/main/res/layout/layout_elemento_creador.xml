@@ -18,21 +18,22 @@
                 android:id="@+id/textview_nombre"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Nokia X6"
+                android:text="Nombre"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/textview_sensorID"
+                android:id="@+id/textview_label"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Nokia"
+                android:text="Label"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
+
             <TextView
                 android:id="@+id/textview_desc"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Nokia"
+                android:text="Desc"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
 
         </LinearLayout>

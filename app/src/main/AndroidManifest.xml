@@ -30,9 +30,10 @@
         <activity android:name=".RegisterActivity" />
         <activity android:name=".PacienteActivity" />
         <activity android:name=".UpdateElementoActivity" />
-        <activity android:name=".DatosPacienteActivity" />
+        <activity android:name=".DatosEscanearActivity" />
         <activity android:name=".JuegoActivity" />
         <activity android:name=".SinPreguntasActivity" />
+        <activity android:name=".DatosBuscarActivity" />
 
         <provider
             android:name="androidx.core.content.FileProvider"

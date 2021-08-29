@@ -259,6 +259,8 @@ public class JuegoActivity extends AppCompatActivity {
         Intent intent = new Intent(getApplicationContext(), SinPreguntasActivity.class);
         intent.putExtra("Correct", correctosCounter);
         intent.putExtra("Incorrect", questionList.size() - correctosCounter);
+        double calc = (Double.valueOf(correctosCounter) / Double.valueOf(questionList.size()))*100;
+        intent.putExtra("Percent", calc);
         startActivity(intent);
         finish();
     }

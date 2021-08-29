@@ -28,19 +28,19 @@ public class SinPreguntasActivity extends AppCompatActivity {
         back = findViewById(R.id.buttonMenuPaciente);
 
         Bundle extras = getIntent().getExtras();
-        int numCorrect = 0, numIncorrect = 0, numPercent;
+        int numCorrect = 0, numIncorrect = 0;
+        double numPercent = 0;
 
         if (extras != null) {
             numCorrect = extras.getInt("Correct");
             numIncorrect = extras.getInt("Incorrect");
+            numPercent = extras.getDouble("Percent");
             //The key argument here must match that used in the other activity
         }
 
         correct.setText(String.valueOf(numCorrect));
         incorrect.setText(String.valueOf(numIncorrect));
-        int calc = (numCorrect / (numIncorrect + numCorrect))*100;
-        Log.d("tag", "percent is " + String.valueOf(calc));
-        percentage.setText(String.valueOf(calc) + "%");
+        percentage.setText(String.valueOf(numPercent) + "%");
 
         playAgain.setOnClickListener(new View.OnClickListener() {
             @Override

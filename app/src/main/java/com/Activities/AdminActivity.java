@@ -7,11 +7,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.Button;
-import android.widget.ProgressBar;
 
+import com.Adapters.UsersAdapter;
 import com.DB_Objects.User;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
@@ -27,7 +25,6 @@ public class AdminActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private UsersAdapter adapter;
     private List<User> userList;
-    private ProgressBar progressBar;
     private FirebaseFirestore db;
 
 
@@ -46,7 +43,6 @@ public class AdminActivity extends AppCompatActivity {
             }
         });
 
-        //progressBar = findViewById(R.id.progressbar);
 
         recyclerView = findViewById(R.id.recyclerview_users);
         recyclerView.setHasFixedSize(true);
@@ -66,7 +62,6 @@ public class AdminActivity extends AppCompatActivity {
                     @Override
                     public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
 
-                        //progressBar.setVisibility(View.GONE);
 
                         if(!queryDocumentSnapshots.isEmpty()){
 

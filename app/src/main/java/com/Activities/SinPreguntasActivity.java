@@ -9,10 +9,15 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.DB_Objects.Elemento;
+
+import java.util.ArrayList;
+
 public class SinPreguntasActivity extends AppCompatActivity {
 
     TextView correct, incorrect, percentage;
     Button playAgain, back;
+    ArrayList<Elemento> elementList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +33,7 @@ public class SinPreguntasActivity extends AppCompatActivity {
         back = findViewById(R.id.buttonMenuPaciente);
 
         Bundle extras = getIntent().getExtras();
+        elementList = new ArrayList<Elemento>();
         int numCorrect = 0, numIncorrect = 0;
         double numPercent = 0;
 
@@ -35,6 +41,7 @@ public class SinPreguntasActivity extends AppCompatActivity {
             numCorrect = extras.getInt("Correct");
             numIncorrect = extras.getInt("Incorrect");
             numPercent = extras.getDouble("Percent");
+            elementList = (ArrayList<Elemento>) extras.get("Test");
             //The key argument here must match that used in the other activity
         }
 
@@ -45,7 +52,9 @@ public class SinPreguntasActivity extends AppCompatActivity {
         playAgain.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(), JuegoActivity.class));
+                Intent intent = new Intent(getApplicationContext(), JuegoActivity.class);
+                intent.putExtra("Test", elementList);
+                startActivity(intent);
                 finish();
             }
         });

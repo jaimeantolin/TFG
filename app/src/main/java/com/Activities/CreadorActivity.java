@@ -16,6 +16,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.Adapters.ElementosAdapterCreador;
 import com.DB_Objects.Elemento;
 import com.DB_Objects.Test;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -95,7 +96,6 @@ public class CreadorActivity extends AppCompatActivity {
                     @Override
                     public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
 
-                        //progressBar.setVisibility(View.GONE);
 
                         if(!queryDocumentSnapshots.isEmpty()){
 
@@ -143,6 +143,10 @@ public class CreadorActivity extends AppCompatActivity {
                 if (elemBuscar.isEmpty()) {
                     editTextSeleccion.setError("Nombre de objeto");
                     editTextSeleccion.requestFocus();
+                }
+                else if(elementosSelec.size() < 3){
+                    Toast.makeText(CreadorActivity.this, "Selecciona al menos 3 elementos!", Toast.LENGTH_SHORT).show();
+                    dialogSeleccion.dismiss();
                 }
                 else {
 

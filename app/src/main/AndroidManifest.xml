@@ -34,6 +34,7 @@
         <activity android:name=".JuegoActivity" />
         <activity android:name=".SinPreguntasActivity" />
         <activity android:name=".DatosBuscarActivity" />
+        <activity android:name=".JuegoSelecActivity" />
 
         <provider
             android:name="androidx.core.content.FileProvider"

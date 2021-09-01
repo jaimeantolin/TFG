@@ -91,7 +91,7 @@ public class PacienteActivity extends AppCompatActivity {
         juego.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(), JuegoActivity.class));
+                startActivity(new Intent(getApplicationContext(), JuegoSelecActivity.class));
             }
         });
 

@@ -50,6 +50,7 @@ public class JuegoActivity extends AppCompatActivity {
     int pregInd = 0;
     int correctosCounter = 0;
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -67,33 +68,16 @@ public class JuegoActivity extends AppCompatActivity {
         elementList = new ArrayList<Elemento>();
         questionList = new ArrayList<Pregunta>();
 
-        // Guardar todos los elementos de la base de conocimiento en una lista
-        db.collection("Conocimiento")
-                .get()
-                .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
-                    @RequiresApi(api = Build.VERSION_CODES.N)
-                    @Override
-                    public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+        Bundle extras = getIntent().getExtras();
 
-                        if(!queryDocumentSnapshots.isEmpty()){
+        if (extras != null) {
+            elementList = (ArrayList<Elemento>) extras.get("Test");
+            //The key argument here must match that used in the other activity
+            generateQuestions();
+        }
 
-                            List<DocumentSnapshot> list = queryDocumentSnapshots.getDocuments();
 
-                            for(DocumentSnapshot d : list){
 
-                                Elemento e = d.toObject(Elemento.class);
-                                e.setId(d.getId());
-                                elementList.add(e);
-
-                            }
-                        }
-                        generateQuestions();
-
-                        preguntaActual = questionList.get(pregInd);
-
-                        updateOptions();
-                    }
-                });
 
         buttonA.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -237,6 +221,10 @@ public class JuegoActivity extends AppCompatActivity {
         }
 
         Collections.shuffle(questionList);
+
+        preguntaActual = questionList.get(pregInd);
+
+        updateOptions();
     }
 
     private void updateOptions(){
@@ -261,6 +249,7 @@ public class JuegoActivity extends AppCompatActivity {
         intent.putExtra("Incorrect", questionList.size() - correctosCounter);
         double calc = (Double.valueOf(correctosCounter) / Double.valueOf(questionList.size()))*100;
         intent.putExtra("Percent", calc);
+        intent.putExtra("Test", elementList);
         startActivity(intent);
         finish();
     }

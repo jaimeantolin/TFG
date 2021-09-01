@@ -118,8 +118,8 @@ public class PacienteActivity extends AppCompatActivity {
         dialogBuscar.setCancelable(false);
         dialogBuscar.show();
 
-        Button buttonBuscar = (Button) dialogBuscar.findViewById(R.id.dialogBuscar);
-        EditText editTextBuscar = (EditText) dialogBuscar.findViewById(R.id.editTextBusqueda);
+        Button buttonBuscar = (Button) dialogBuscar.findViewById(R.id.dialogSeleccion);
+        EditText editTextBuscar = (EditText) dialogBuscar.findViewById(R.id.editTextSeleccion);
 
 
 

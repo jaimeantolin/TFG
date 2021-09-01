@@ -2,6 +2,7 @@ package com.Activities;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,15 +13,22 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.DB_Objects.Elemento;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ElementosAdapterCreador extends RecyclerView.Adapter<ElementosAdapterCreador.ElementoViewHolder>{
     private Context mCtx;
     private List<Elemento> elementoList;
+    private boolean haySeleccion = false;
+    private ArrayList<Elemento> elementosSelec = new ArrayList<>();
 
     public ElementosAdapterCreador(Context mCtx, List<Elemento> elementoList) {
         this.mCtx = mCtx;
         this.elementoList = elementoList;
+    }
+
+    public ArrayList<Elemento> getElementosSelec(){
+        return elementosSelec;
     }
 
     @NonNull
@@ -46,7 +54,7 @@ public class ElementosAdapterCreador extends RecyclerView.Adapter<ElementosAdapt
         return elementoList.size();
     }
 
-    class ElementoViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
+    class ElementoViewHolder extends RecyclerView.ViewHolder{
 
         TextView textviewNombre, textViewLabel, textViewDesc;
 
@@ -57,15 +65,48 @@ public class ElementosAdapterCreador extends RecyclerView.Adapter<ElementosAdapt
             textViewLabel = itemView.findViewById(R.id.textview_label);
             textViewDesc = itemView.findViewById(R.id.textview_desc);
 
-            itemView.setOnClickListener(this);
+            itemView.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View v) {
+                    haySeleccion = true;
+                    if(elementosSelec.contains(elementoList.get(getAdapterPosition()))){
+                        itemView.setBackgroundColor(Color.TRANSPARENT);
+                        elementosSelec.remove(elementoList.get(getAdapterPosition()));
+                    } else {
+                        itemView.setBackgroundColor(Color.parseColor("#F3FF00"));
+                        elementosSelec.add(elementoList.get(getAdapterPosition()));
+                    }
+                    if(elementosSelec.size() == 0)
+                        haySeleccion = false;
+                    return true;
+                }
+            });
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if(haySeleccion){
+                        if(elementosSelec.contains(elementoList.get(getAdapterPosition()))){
+                            itemView.setBackgroundColor(Color.TRANSPARENT);
+                            elementosSelec.remove(elementoList.get(getAdapterPosition()));
+                        } else {
+                            itemView.setBackgroundColor(Color.parseColor("#F3FF00"));
+                            elementosSelec.add(elementoList.get(getAdapterPosition()));
+                        }
+                        if(elementosSelec.size() == 0)
+                            haySeleccion = false;
+
+                    } else {
+                        Elemento element = elementoList.get(getAdapterPosition());
+                        Intent intent = new Intent(mCtx, UpdateElementoActivity.class);
+                        intent.putExtra("elemento", element);
+                        mCtx.startActivity(intent);
+                    }
+
+
+                }
+            });
         }
 
-        @Override
-        public void onClick(View v) {
-            Elemento element = elementoList.get(getAdapterPosition());
-            Intent intent = new Intent(mCtx, UpdateElementoActivity.class);
-            intent.putExtra("elemento", element);
-            mCtx.startActivity(intent);
-        }
+
     }
 }

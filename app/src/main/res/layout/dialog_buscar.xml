@@ -33,7 +33,7 @@
         android:layout_height="50dp"></View>
 
     <EditText
-        android:id="@+id/editTextBusqueda"
+        android:id="@+id/editTextSeleccion"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -48,7 +48,7 @@
         android:layout_height="50dp"></View>
 
     <Button
-        android:id="@+id/dialogBuscar"
+        android:id="@+id/dialogSeleccion"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:text="Buscar"

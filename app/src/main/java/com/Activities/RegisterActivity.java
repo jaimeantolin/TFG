@@ -101,21 +101,20 @@ public class RegisterActivity extends AppCompatActivity {
 
                             if(isCreador.isChecked()){
                                 userInfo.put("isCreador", "1");
+                                userInfo.put("isPaciente", "0");
+                                userInfo.put("isAdmin", "0");
                             }
                             if(isPaciente.isChecked()){
                                 userInfo.put("isPaciente", "1");
+                                userInfo.put("isCreador", "0");
+                                userInfo.put("isAdmin", "0");
                             }
 
                             df.set(userInfo);
 
-                            if(isCreador.isChecked()){
-                                startActivity(new Intent(getApplicationContext(), CreadorActivity.class));
-                                finish(); // prevents going back to registration page
-                            }
-                            if(isPaciente.isChecked()){
-                                startActivity(new Intent(getApplicationContext(), PacienteActivity.class));
-                                finish(); // prevents going back to registration page
-                            }
+                            FirebaseAuth.getInstance().signOut();
+                            startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+                            finish();
                         }
                     }).addOnFailureListener(new OnFailureListener() {
                         @Override

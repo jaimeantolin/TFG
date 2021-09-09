@@ -1,0 +1,162 @@
+[
+    {
+        "merged": "C:\\Users\\jaman\\OneDrive\\Documents\\GitHub\\TFG\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xxhdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\jaman\\OneDrive\\Documents\\GitHub\\TFG\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "C:\\Users\\jaman\\OneDrive\\Documents\\GitHub\\TFG\\app\\build\\intermediates\\merged_res\\debug\\mipmap-hdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\jaman\\OneDrive\\Documents\\GitHub\\TFG\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "C:\\Users\\jaman\\OneDrive\\Documents\\GitHub\\TFG\\app\\build\\intermediates\\merged_res\\debug\\layout_datos_escanear.xml.flat",
+        "source": "C:\\Users\\jaman\\OneDrive\\Documents\\GitHub\\TFG\\app\\src\\main\\res\\layout\\datos_escanear.xml"
+    },
+    {
+        "merged": "C:\\Users\\jaman\\OneDrive\\Documents\\GitHub\\TFG\\app\\build\\intermediates\\merged_res\\debug\\mipmap-mdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\jaman\\OneDrive\\Documents\\GitHub\\TFG\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\jaman\\OneDrive\\Documents\\GitHub\\TFG\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xxxhdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\jaman\\OneDrive\\Documents\\GitHub\\TFG\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "C:\\Users\\jaman\\OneDrive\\Documents\\GitHub\\TFG\\app\\build\\intermediates\\merged_res\\debug\\layout_activity_admin.xml.flat",
+        "source": "C:\\Users\\jaman\\OneDrive\\Documents\\GitHub\\TFG\\app\\src\\main\\res\\layout\\activity_admin.xml"
+    },
+    {
+        "merged": "C:\\Users\\jaman\\OneDrive\\Documents\\GitHub\\TFG\\app\\build\\intermediates\\merged_res\\debug\\drawable_remove.png.flat",
+        "source": "C:\\Users\\jaman\\OneDrive\\Documents\\GitHub\\TFG\\app\\src\\main\\res\\drawable\\remove.png"
+    },
+    {
+        "merged": "C:\\Users\\jaman\\OneDrive\\Documents\\GitHub\\TFG\\app\\build\\intermediates\\merged_res\\debug\\layout_layout_user.xml.flat",
+        "source": "C:\\Users\\jaman\\OneDrive\\Documents\\GitHub\\TFG\\app\\src\\main\\res\\layout\\layout_user.xml"
+    },
+    {
+        "merged": "C:\\Users\\jaman\\OneDrive\\Documents\\GitHub\\TFG\\app\\build\\intermediates\\merged_res\\debug\\layout_dialog_incorrecto.xml.flat",
+        "source": "C:\\Users\\jaman\\OneDrive\\Documents\\GitHub\\TFG\\app\\src\\main\\res\\layout\\dialog_incorrecto.xml"
+    },
+    {
+        "merged": "C:\\Users\\jaman\\OneDrive\\Documents\\GitHub\\TFG\\app\\build\\intermediates\\merged_res\\debug\\layout_activity_register.xml.flat",
+        "source": "C:\\Users\\jaman\\OneDrive\\Documents\\GitHub\\TFG\\app\\src\\main\\res\\layout\\activity_register.xml"
+    },
+    {
+        "merged": "C:\\Users\\jaman\\OneDrive\\Documents\\GitHub\\TFG\\app\\build\\intermediates\\merged_res\\debug\\layout_activity_juego_selec.xml.flat",
+        "source": "C:\\Users\\jaman\\OneDrive\\Documents\\GitHub\\TFG\\app\\src\\main\\res\\layout\\activity_juego_selec.xml"
+    },
+    {
+        "merged": "C:\\Users\\jaman\\OneDrive\\Documents\\GitHub\\TFG\\app\\build\\intermediates\\merged_res\\debug\\drawable_check.png.flat",
+        "source": "C:\\Users\\jaman\\OneDrive\\Documents\\GitHub\\TFG\\app\\src\\main\\res\\drawable\\check.png"
+    },
+    {
+        "merged": "C:\\Users\\jaman\\OneDrive\\Documents\\GitHub\\TFG\\app\\build\\intermediates\\merged_res\\debug\\drawable_add_icon.png.flat",
+        "source": "C:\\Users\\jaman\\OneDrive\\Documents\\GitHub\\TFG\\app\\src\\main\\res\\drawable\\add_icon.png"
+    },
+    {
+        "merged": "C:\\Users\\jaman\\OneDrive\\Documents\\GitHub\\TFG\\app\\build\\intermediates\\merged_res\\debug\\layout_activity_update_elemento.xml.flat",
+        "source": "C:\\Users\\jaman\\OneDrive\\Documents\\GitHub\\TFG\\app\\src\\main\\res\\layout\\activity_update_elemento.xml"
+    },
+    {
+        "merged": "C:\\Users\\jaman\\OneDrive\\Documents\\GitHub\\TFG\\app\\build\\intermediates\\merged_res\\debug\\mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "C:\\Users\\jaman\\OneDrive\\Documents\\GitHub\\TFG\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_launcher.xml"
+    },
+    {
+        "merged": "C:\\Users\\jaman\\OneDrive\\Documents\\GitHub\\TFG\\app\\build\\intermediates\\merged_res\\debug\\layout_activity_new_element.xml.flat",
+        "source": "C:\\Users\\jaman\\OneDrive\\Documents\\GitHub\\TFG\\app\\src\\main\\res\\layout\\activity_new_element.xml"
+    },
+    {
+        "merged": "C:\\Users\\jaman\\OneDrive\\Documents\\GitHub\\TFG\\app\\build\\intermediates\\merged_res\\debug\\layout_list_item_single.xml.flat",
+        "source": "C:\\Users\\jaman\\OneDrive\\Documents\\GitHub\\TFG\\app\\src\\main\\res\\layout\\list_item_single.xml"
+    },
+    {
+        "merged": "C:\\Users\\jaman\\OneDrive\\Documents\\GitHub\\TFG\\app\\build\\intermediates\\merged_res\\debug\\mipmap-mdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\jaman\\OneDrive\\Documents\\GitHub\\TFG\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "C:\\Users\\jaman\\OneDrive\\Documents\\GitHub\\TFG\\app\\build\\intermediates\\merged_res\\debug\\layout_activity_paciente.xml.flat",
+        "source": "C:\\Users\\jaman\\OneDrive\\Documents\\GitHub\\TFG\\app\\src\\main\\res\\layout\\activity_paciente.xml"
+    },
+    {
+        "merged": "C:\\Users\\jaman\\OneDrive\\Documents\\GitHub\\TFG\\app\\build\\intermediates\\merged_res\\debug\\layout_dialog_correcto.xml.flat",
+        "source": "C:\\Users\\jaman\\OneDrive\\Documents\\GitHub\\TFG\\app\\src\\main\\res\\layout\\dialog_correcto.xml"
+    },
+    {
+        "merged": "C:\\Users\\jaman\\OneDrive\\Documents\\GitHub\\TFG\\app\\build\\intermediates\\merged_res\\debug\\layout_datos_buscar.xml.flat",
+        "source": "C:\\Users\\jaman\\OneDrive\\Documents\\GitHub\\TFG\\app\\src\\main\\res\\layout\\datos_buscar.xml"
+    },
+    {
+        "merged": "C:\\Users\\jaman\\OneDrive\\Documents\\GitHub\\TFG\\app\\build\\intermediates\\merged_res\\debug\\xml_file_paths.xml.flat",
+        "source": "C:\\Users\\jaman\\OneDrive\\Documents\\GitHub\\TFG\\app\\src\\main\\res\\xml\\file_paths.xml"
+    },
+    {
+        "merged": "C:\\Users\\jaman\\OneDrive\\Documents\\GitHub\\TFG\\app\\build\\intermediates\\merged_res\\debug\\mipmap-hdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\jaman\\OneDrive\\Documents\\GitHub\\TFG\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\jaman\\OneDrive\\Documents\\GitHub\\TFG\\app\\build\\intermediates\\merged_res\\debug\\layout_dialog_seleccion.xml.flat",
+        "source": "C:\\Users\\jaman\\OneDrive\\Documents\\GitHub\\TFG\\app\\src\\main\\res\\layout\\dialog_seleccion.xml"
+    },
+    {
+        "merged": "C:\\Users\\jaman\\OneDrive\\Documents\\GitHub\\TFG\\app\\build\\intermediates\\merged_res\\debug\\layout_activity_login.xml.flat",
+        "source": "C:\\Users\\jaman\\OneDrive\\Documents\\GitHub\\TFG\\app\\src\\main\\res\\layout\\activity_login.xml"
+    },
+    {
+        "merged": "C:\\Users\\jaman\\OneDrive\\Documents\\GitHub\\TFG\\app\\build\\intermediates\\merged_res\\debug\\layout_activity_update_user.xml.flat",
+        "source": "C:\\Users\\jaman\\OneDrive\\Documents\\GitHub\\TFG\\app\\src\\main\\res\\layout\\activity_update_user.xml"
+    },
+    {
+        "merged": "C:\\Users\\jaman\\OneDrive\\Documents\\GitHub\\TFG\\app\\build\\intermediates\\merged_res\\debug\\layout_dialog_buscar.xml.flat",
+        "source": "C:\\Users\\jaman\\OneDrive\\Documents\\GitHub\\TFG\\app\\src\\main\\res\\layout\\dialog_buscar.xml"
+    },
+    {
+        "merged": "C:\\Users\\jaman\\OneDrive\\Documents\\GitHub\\TFG\\app\\build\\intermediates\\merged_res\\debug\\drawable-v24_question.png.flat",
+        "source": "C:\\Users\\jaman\\OneDrive\\Documents\\GitHub\\TFG\\app\\src\\main\\res\\drawable-v24\\question.png"
+    },
+    {
+        "merged": "C:\\Users\\jaman\\OneDrive\\Documents\\GitHub\\TFG\\app\\build\\intermediates\\merged_res\\debug\\layout_activity_creador.xml.flat",
+        "source": "C:\\Users\\jaman\\OneDrive\\Documents\\GitHub\\TFG\\app\\src\\main\\res\\layout\\activity_creador.xml"
+    },
+    {
+        "merged": "C:\\Users\\jaman\\OneDrive\\Documents\\GitHub\\TFG\\app\\build\\intermediates\\merged_res\\debug\\layout_sin_preguntas.xml.flat",
+        "source": "C:\\Users\\jaman\\OneDrive\\Documents\\GitHub\\TFG\\app\\src\\main\\res\\layout\\sin_preguntas.xml"
+    },
+    {
+        "merged": "C:\\Users\\jaman\\OneDrive\\Documents\\GitHub\\TFG\\app\\build\\intermediates\\merged_res\\debug\\drawable-anydpi-v24_ic_launcher_foreground.xml.flat",
+        "source": "C:\\Users\\jaman\\OneDrive\\Documents\\GitHub\\TFG\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v24\\ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "C:\\Users\\jaman\\OneDrive\\Documents\\GitHub\\TFG\\app\\build\\intermediates\\merged_res\\debug\\layout_layout_tests.xml.flat",
+        "source": "C:\\Users\\jaman\\OneDrive\\Documents\\GitHub\\TFG\\app\\src\\main\\res\\layout\\layout_tests.xml"
+    },
+    {
+        "merged": "C:\\Users\\jaman\\OneDrive\\Documents\\GitHub\\TFG\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\jaman\\OneDrive\\Documents\\GitHub\\TFG\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\jaman\\OneDrive\\Documents\\GitHub\\TFG\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\jaman\\OneDrive\\Documents\\GitHub\\TFG\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\jaman\\OneDrive\\Documents\\GitHub\\TFG\\app\\build\\intermediates\\merged_res\\debug\\layout_layout_elemento_creador.xml.flat",
+        "source": "C:\\Users\\jaman\\OneDrive\\Documents\\GitHub\\TFG\\app\\src\\main\\res\\layout\\layout_elemento_creador.xml"
+    },
+    {
+        "merged": "C:\\Users\\jaman\\OneDrive\\Documents\\GitHub\\TFG\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xxxhdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\jaman\\OneDrive\\Documents\\GitHub\\TFG\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\jaman\\OneDrive\\Documents\\GitHub\\TFG\\app\\build\\intermediates\\merged_res\\debug\\layout_activity_juego.xml.flat",
+        "source": "C:\\Users\\jaman\\OneDrive\\Documents\\GitHub\\TFG\\app\\src\\main\\res\\layout\\activity_juego.xml"
+    },
+    {
+        "merged": "C:\\Users\\jaman\\OneDrive\\Documents\\GitHub\\TFG\\app\\build\\intermediates\\merged_res\\debug\\drawable_ic_launcher_background.xml.flat",
+        "source": "C:\\Users\\jaman\\OneDrive\\Documents\\GitHub\\TFG\\app\\src\\main\\res\\drawable\\ic_launcher_background.xml"
+    },
+    {
+        "merged": "C:\\Users\\jaman\\OneDrive\\Documents\\GitHub\\TFG\\app\\build\\intermediates\\merged_res\\debug\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "C:\\Users\\jaman\\OneDrive\\Documents\\GitHub\\TFG\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_launcher_round.xml"
+    },
+    {
+        "merged": "C:\\Users\\jaman\\OneDrive\\Documents\\GitHub\\TFG\\app\\build\\intermediates\\merged_res\\debug\\mipmap-xhdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\jaman\\OneDrive\\Documents\\GitHub\\TFG\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher_round.png"
+    }
+]

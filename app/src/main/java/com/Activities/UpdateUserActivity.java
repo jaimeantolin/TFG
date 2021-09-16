@@ -1,19 +1,26 @@
 package com.Activities;
 
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.webkit.URLUtil;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.DB_Objects.User;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 
-public class UpdateUserActivity extends AppCompatActivity implements View.OnClickListener {
+public class UpdateUserActivity extends AppCompatActivity {
 
     private EditText editTextFullName;
     private EditText editTextUserEmail;
@@ -23,7 +30,7 @@ public class UpdateUserActivity extends AppCompatActivity implements View.OnClic
     private EditText editTextIsCreador;
 
     private FirebaseFirestore db;
-
+    private FirebaseAuth fAuth;
     private User user;
 
 
@@ -35,6 +42,7 @@ public class UpdateUserActivity extends AppCompatActivity implements View.OnClic
 
         user = (User) getIntent().getSerializableExtra("user");
         db = FirebaseFirestore.getInstance();
+        fAuth = FirebaseAuth.getInstance();
 
         editTextFullName = findViewById(R.id.edittext_fullName);
         editTextUserEmail = findViewById(R.id.edittext_email);
@@ -51,7 +59,39 @@ public class UpdateUserActivity extends AppCompatActivity implements View.OnClic
         editTextIsPaciente.setText(user.getIsPaciente());
         editTextIsCreador.setText(user.getIsCreador());
 
-        findViewById(R.id.button_update).setOnClickListener(this);
+        findViewById(R.id.button_update).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                updateUser();
+                startActivity(new Intent(getApplicationContext(), AdminActivity.class));
+            }
+        });
+
+        findViewById(R.id.button_eliminar2).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(UpdateUserActivity.this);
+                builder.setTitle("¿Estas seguro?");
+                builder.setMessage("Eliminar es permanente");
+
+                builder.setPositiveButton("Si", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        eliminarElemento();
+                    }
+                });
+
+                builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                    }
+                });
+
+                AlertDialog ad = builder.create();
+                ad.show();
+            }
+        });
     }
 
     private boolean hasValidationErrors(String fullName, String userEmail, String isValidated, String isAdmin, String isPaciente, String isCreador) {
@@ -72,7 +112,7 @@ public class UpdateUserActivity extends AppCompatActivity implements View.OnClic
             editTextIsValidated.requestFocus();
             return true;
         }
-    /*    if (isAdmin.isEmpty()) {
+        if (isAdmin.isEmpty()) {
             editTextIsAdmin.setError("isAdmin field required");
             editTextIsAdmin.requestFocus();
             return true;
@@ -87,7 +127,7 @@ public class UpdateUserActivity extends AppCompatActivity implements View.OnClic
             editTextIsCreador.requestFocus();
             return true;
         }
-*/
+
 
         return false;
     }
@@ -118,13 +158,16 @@ public class UpdateUserActivity extends AppCompatActivity implements View.OnClic
         }
     }
 
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.button_update:
-                updateUser();
-                startActivity(new Intent(getApplicationContext(), AdminActivity.class));
-                break;
-        }
+    private void eliminarElemento() {
+        db.collection("Users").document(user.getId()).delete().addOnCompleteListener(new OnCompleteListener() {
+            @Override
+            public void onComplete(@NonNull Task task) {
+                if(task.isSuccessful()){
+                    Toast.makeText(UpdateUserActivity.this, "Usuario Eliminado", Toast.LENGTH_LONG).show();
+                    finish();
+                    startActivity(new Intent(getApplicationContext(), AdminActivity.class));
+                }
+            }
+        });
     }
 }

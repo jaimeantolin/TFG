@@ -21,23 +21,6 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\jaman\\.gradle\\caches\\transforms-3\\ef32fc443f9cf96d05a353029d83925c\\transformed\\core-1.7.0-alpha02\\res\\values-en-rGB\\values-en-rGB.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "100",
-                        "endOffsets": "151"
-                    },
-                    "to": {
-                        "startLines": "106",
-                        "startColumns": "4",
-                        "startOffsets": "9887",
-                        "endColumns": "100",
-                        "endOffsets": "9983"
-                    }
-                },
-                {
                     "source": "C:\\Users\\jaman\\.gradle\\caches\\transforms-3\\94c6452ff9177c2342e71c2a71e69306\\transformed\\jetified-play-services-basement-17.1.0\\res\\values-en-rGB\\values.xml",
                     "from": {
                         "startLines": "4",
@@ -71,6 +54,23 @@
                         "endLines": "5,33,34,35,36,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104",
                         "endColumns": "12,76,97,114,78,64,89,66,58,89,63,62,68,63,53,111,57,61,53,71,121,86,80,109,76,80,90,66,65,69,76,86,70,76,68,68,90,71,88,88,73,71,85,49,65,79,83,61,63,62,99,96,91,98,77",
                         "endOffsets": "272,3006,3104,3219,3298,6011,6101,6168,6227,6317,6381,6444,6513,6577,6631,6743,6801,6863,6917,6989,7111,7198,7279,7389,7466,7547,7638,7705,7771,7841,7918,8005,8076,8153,8222,8291,8382,8454,8543,8632,8706,8778,8864,8914,8980,9060,9144,9206,9270,9333,9433,9530,9622,9721,9799"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\jaman\\.gradle\\caches\\transforms-3\\6977154f7423e620d6ee50b4dff6fc6e\\transformed\\core-1.7.0-beta01\\res\\values-en-rGB\\values-en-rGB.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    },
+                    "to": {
+                        "startLines": "106",
+                        "startColumns": "4",
+                        "startOffsets": "9887",
+                        "endColumns": "100",
+                        "endOffsets": "9983"
                     }
                 },
                 {

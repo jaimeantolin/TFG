@@ -1840,6 +1840,7 @@ int id buttonPanel 0x7f080068
 int id buttonPlayAgain 0x7f080069
 int id buttonSeleccion 0x7f08006a
 int id button_eliminar 0x7f08006b
+int id button_eliminar2 0x7f0801fa
 int id button_update 0x7f08006c
 int id cache_measures 0x7f08006d
 int id cancel_button 0x7f08006e

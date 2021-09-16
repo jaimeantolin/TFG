@@ -4,6 +4,23 @@
             "outputFile": "C:\\Users\\jaman\\OneDrive\\Documents\\GitHub\\TFG\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-lv\\values-lv.xml",
             "map": [
                 {
+                    "source": "C:\\Users\\jaman\\.gradle\\caches\\transforms-3\\6977154f7423e620d6ee50b4dff6fc6e\\transformed\\core-1.7.0-beta01\\res\\values-lv\\values-lv.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    },
+                    "to": {
+                        "startLines": "107",
+                        "startColumns": "4",
+                        "startOffsets": "10520",
+                        "endColumns": "100",
+                        "endOffsets": "10616"
+                    }
+                },
+                {
                     "source": "C:\\Users\\jaman\\.gradle\\caches\\transforms-3\\16afeec0dbf6e685c6452b48bfe63fc1\\transformed\\jetified-play-services-base-17.1.0\\res\\values-lv\\values.xml",
                     "from": {
                         "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20",
@@ -52,23 +69,6 @@
                         "startOffsets": "329,449,559,668,754,858,980,1062,1142,1252,1360,1466,1575,1686,1789,1901,2008,2113,2213,2298,2407,2518,2617,2728,2835,2940,3114,10437",
                         "endColumns": "119,109,108,85,103,121,81,79,109,107,105,108,110,102,111,106,104,99,84,108,110,98,110,106,104,173,98,82",
                         "endOffsets": "444,554,663,749,853,975,1057,1137,1247,1355,1461,1570,1681,1784,1896,2003,2108,2208,2293,2402,2513,2612,2723,2830,2935,3109,3208,10515"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\jaman\\.gradle\\caches\\transforms-3\\ef32fc443f9cf96d05a353029d83925c\\transformed\\core-1.7.0-alpha02\\res\\values-lv\\values-lv.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "100",
-                        "endOffsets": "151"
-                    },
-                    "to": {
-                        "startLines": "107",
-                        "startColumns": "4",
-                        "startOffsets": "10520",
-                        "endColumns": "100",
-                        "endOffsets": "10616"
                     }
                 },
                 {

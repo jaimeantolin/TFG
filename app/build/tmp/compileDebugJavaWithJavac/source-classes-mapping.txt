@@ -9,6 +9,11 @@ com/DB_Objects/Test.java
 com/Activities/UpdateUserActivity.java
  com.Activities.UpdateUserActivity
  com.Activities.UpdateUserActivity$1
+ com.Activities.UpdateUserActivity$2
+ com.Activities.UpdateUserActivity$2$1
+ com.Activities.UpdateUserActivity$2$2
+ com.Activities.UpdateUserActivity$3
+ com.Activities.UpdateUserActivity$4
 com/DB_Objects/Pregunta.java
  com.DB_Objects.Pregunta
 com/Activities/DatosEscanearActivity.java
@@ -77,6 +82,28 @@ com/Activities/NewElementActivity.java
  com.Activities.NewElementActivity$7$1
  com.Activities.NewElementActivity$7$1$1
  com.Activities.NewElementActivity$7$1$2
+com/Activities/PacienteActivity.java
+ com.Activities.PacienteActivity
+ com.Activities.PacienteActivity$1
+ com.Activities.PacienteActivity$2
+ com.Activities.PacienteActivity$3
+ com.Activities.PacienteActivity$4
+ com.Activities.PacienteActivity$5
+ com.Activities.PacienteActivity$6
+ com.Activities.PacienteActivity$7
+com/Activities/CreadorActivity.java
+ com.Activities.CreadorActivity
+ com.Activities.CreadorActivity$1
+ com.Activities.CreadorActivity$2
+ com.Activities.CreadorActivity$3
+ com.Activities.CreadorActivity$4
+ com.Activities.CreadorActivity$5
+ com.Activities.CreadorActivity$5$1
+ com.Activities.CreadorActivity$5$2
+com/Activities/AdminActivity.java
+ com.Activities.AdminActivity
+ com.Activities.AdminActivity$1
+ com.Activities.AdminActivity$2
 com/Activities/RegisterActivity.java
  com.Activities.RegisterActivity
  com.Activities.RegisterActivity$1
@@ -95,25 +122,3 @@ com/Activities/LoginActivity.java
  com.Activities.LoginActivity$3
  com.Activities.LoginActivity$4
  com.Activities.LoginActivity$5
-com/Activities/AdminActivity.java
- com.Activities.AdminActivity
- com.Activities.AdminActivity$1
- com.Activities.AdminActivity$2
-com/Activities/CreadorActivity.java
- com.Activities.CreadorActivity
- com.Activities.CreadorActivity$1
- com.Activities.CreadorActivity$2
- com.Activities.CreadorActivity$3
- com.Activities.CreadorActivity$4
- com.Activities.CreadorActivity$5
- com.Activities.CreadorActivity$5$1
- com.Activities.CreadorActivity$5$2
-com/Activities/PacienteActivity.java
- com.Activities.PacienteActivity
- com.Activities.PacienteActivity$1
- com.Activities.PacienteActivity$2
- com.Activities.PacienteActivity$3
- com.Activities.PacienteActivity$4
- com.Activities.PacienteActivity$5
- com.Activities.PacienteActivity$6
- com.Activities.PacienteActivity$7

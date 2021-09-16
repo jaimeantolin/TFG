@@ -95,5 +95,12 @@
             android:textAllCaps="false"
             android:textColor="@color/colorAccent" />
 
+        <Button
+            android:id="@+id/button_eliminar2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#FF0000"
+            android:text="Eliminar" />
+
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

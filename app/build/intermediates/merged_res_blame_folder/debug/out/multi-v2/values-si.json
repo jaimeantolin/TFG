@@ -38,23 +38,6 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\jaman\\.gradle\\caches\\transforms-3\\ef32fc443f9cf96d05a353029d83925c\\transformed\\core-1.7.0-alpha02\\res\\values-si\\values-si.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "100",
-                        "endOffsets": "151"
-                    },
-                    "to": {
-                        "startLines": "106",
-                        "startColumns": "4",
-                        "startOffsets": "10010",
-                        "endColumns": "100",
-                        "endOffsets": "10106"
-                    }
-                },
-                {
                     "source": "C:\\Users\\jaman\\.gradle\\caches\\transforms-3\\16afeec0dbf6e685c6452b48bfe63fc1\\transformed\\jetified-play-services-base-17.1.0\\res\\values-si\\values.xml",
                     "from": {
                         "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20",
@@ -88,6 +71,23 @@
                         "endLines": "5,33,34,35,36,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104",
                         "endColumns": "12,77,101,114,82,63,88,66,59,93,62,55,69,66,54,118,56,63,53,72,121,82,84,101,77,79,85,66,65,69,72,81,71,76,71,69,92,72,89,92,73,71,90,53,65,83,84,61,63,62,104,99,94,99,79",
                         "endOffsets": "269,3063,3165,3280,3363,6106,6195,6262,6322,6416,6479,6535,6605,6672,6727,6846,6903,6967,7021,7094,7216,7299,7384,7486,7564,7644,7730,7797,7863,7933,8006,8088,8160,8237,8309,8379,8472,8545,8635,8728,8802,8874,8965,9019,9085,9169,9254,9316,9380,9443,9548,9648,9743,9843,9923"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\jaman\\.gradle\\caches\\transforms-3\\6977154f7423e620d6ee50b4dff6fc6e\\transformed\\core-1.7.0-beta01\\res\\values-si\\values-si.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    },
+                    "to": {
+                        "startLines": "106",
+                        "startColumns": "4",
+                        "startOffsets": "10010",
+                        "endColumns": "100",
+                        "endOffsets": "10106"
                     }
                 }
             ]

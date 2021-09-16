@@ -38,23 +38,6 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\jaman\\.gradle\\caches\\transforms-3\\ef32fc443f9cf96d05a353029d83925c\\transformed\\core-1.7.0-alpha02\\res\\values-gu\\values-gu.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "100",
-                        "endOffsets": "151"
-                    },
-                    "to": {
-                        "startLines": "106",
-                        "startColumns": "4",
-                        "startOffsets": "10020",
-                        "endColumns": "100",
-                        "endOffsets": "10116"
-                    }
-                },
-                {
                     "source": "C:\\Users\\jaman\\.gradle\\caches\\transforms-3\\94c6452ff9177c2342e71c2a71e69306\\transformed\\jetified-play-services-basement-17.1.0\\res\\values-gu\\values.xml",
                     "from": {
                         "startLines": "4",
@@ -88,6 +71,23 @@
                         "endLines": "5,33,34,35,36,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104",
                         "endColumns": "12,81,98,119,83,62,90,66,58,89,64,63,68,61,53,114,57,60,53,72,126,85,83,102,74,75,85,66,65,72,79,84,70,75,78,68,95,77,94,95,73,74,98,50,66,86,89,61,63,62,101,104,96,105,77",
                         "endOffsets": "268,3033,3132,3252,3336,6064,6155,6222,6281,6371,6436,6500,6569,6631,6685,6800,6858,6919,6973,7046,7173,7259,7343,7446,7521,7597,7683,7750,7816,7889,7969,8054,8125,8201,8280,8349,8445,8523,8618,8714,8788,8863,8962,9013,9080,9167,9257,9319,9383,9446,9548,9653,9750,9856,9934"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\jaman\\.gradle\\caches\\transforms-3\\6977154f7423e620d6ee50b4dff6fc6e\\transformed\\core-1.7.0-beta01\\res\\values-gu\\values-gu.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    },
+                    "to": {
+                        "startLines": "106",
+                        "startColumns": "4",
+                        "startOffsets": "10020",
+                        "endColumns": "100",
+                        "endOffsets": "10116"
                     }
                 }
             ]

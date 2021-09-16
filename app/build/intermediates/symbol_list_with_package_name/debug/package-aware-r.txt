@@ -1841,6 +1841,7 @@ id buttonPanel
 id buttonPlayAgain
 id buttonSeleccion
 id button_eliminar
+id button_eliminar2
 id button_update
 id cache_measures
 id cancel_button

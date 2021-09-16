@@ -118,13 +118,13 @@ public class LoginActivity extends AppCompatActivity {
                 }
 
                 if(documentSnapshot.getString("isPaciente").equals("1")){
-                    //user is not admin
+                    //user is paciente
                     startActivity(new Intent(getApplicationContext(), PacienteActivity.class));
                     finish();
                 }
 
                 if(documentSnapshot.getString("isCreador").equals("1")){
-                    //user is not admin
+                    //user is creador
                     startActivity(new Intent(getApplicationContext(), CreadorActivity.class));
                     finish();
                 }
